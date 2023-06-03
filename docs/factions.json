@@ -1,17 +1,28 @@
-  [
-    {
-  "name": "Soulblight Gravelords",
-  "battleTactics": [
-    {
-      "name": "Callous Overlord",
-      "description": "Pick 1 friendly SUMMONABLE unit more than 3'' from all enemy units. You complete this tactic if that friendly unit is destroyed during this turn."
-    },
-    {
-      "name": "Cursed Unlife",
-      "description": "You complete this tactic if any wounds allocated to your general or to 2 other friendly VAMPIRE units are healed using The Hunger ability during this turn."
-    }
-
-  ]
-    }
+[
+	{
+		"name": "Soulblight Gravelords",
+		"battleTactics": [
+			{
+				"name": "Callous Overlord",
+				"description": "Pick 1 friendly SUMMONABLE unit more than 3'' from all enemy units. You complete this tactic if that friendly unit is destroyed during this turn."
+			},
+			{
+				"name": "Cursed Unlife",
+				"description": "You complete this tactic if any wounds allocated to your general or to 2 other friendly VAMPIRE units are healed using The Hunger ability during this turn."
+			}
+		]
+	},
+	
+		"name": "Hedonites of Slaanesh",
+		"battleTactics": [
+			{
+				"name": "Death by a Thousand Cuts",
+				"description": "Pick 1 enemy unit. You complete this tactic if wounds caused by attacks made by 3 or more different friendly units were allocated to that unit during this turn."
+			},
+			{
+				"name": "An Enrapturing Blur",
+				"description": "Pick 1 enemy HERO that has 0 wounds allocated to it. You complete this tactic if that unit is destroyed in the combat phase of this turn before it is picked to fight."
+			}
+		]
+	}
 ]
-
