@@ -1,8 +1,6 @@
-[
-	{
+[{
 		"name": "Soulblight Gravelords",
-		"battleTactics": [
-			{
+		"battleTactics": [{
 				"name": "Callous Overlord",
 				"description": "Pick 1 friendly SUMMONABLE unit more than 3'' from all enemy units. You complete this tactic if that friendly unit is destroyed during this turn."
 			},
@@ -12,10 +10,9 @@
 			}
 		]
 	},
-	
+	{
 		"name": "Hedonites of Slaanesh",
-		"battleTactics": [
-			{
+		"battleTactics": [{
 				"name": "Death by a Thousand Cuts",
 				"description": "Pick 1 enemy unit. You complete this tactic if wounds caused by attacks made by 3 or more different friendly units were allocated to that unit during this turn."
 			},
