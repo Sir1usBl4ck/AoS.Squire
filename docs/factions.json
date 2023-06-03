@@ -1,4 +1,5 @@
 {
+  [
   "name": "Soulblight Gravelords",
   "battleTactics": [
     {
@@ -11,4 +12,5 @@
     }
 
   ]
+]
 }
