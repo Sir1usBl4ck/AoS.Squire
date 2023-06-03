@@ -1,0 +1,14 @@
+{
+  "name": "Soulblight Gravelords",
+  "battleTactics": [
+    {
+      "name": "Callous Overlord",
+      "description": "Pick 1 friendly SUMMONABLE unit more than 3'' from all enemy units. You complete this tactic if that friendly unit is destroyed during this turn."
+    },
+    {
+      "name": "Cursed Unlife",
+      "description": "You complete this tactic if any wounds allocated to your general or to 2 other friendly VAMPIRE units are healed using The Hunger ability during this turn."
+    }
+
+  ]
+}
