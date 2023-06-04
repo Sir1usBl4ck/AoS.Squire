@@ -1,0 +1,61 @@
+{
+	"name": "Pitched Battles ’22-23 S2",
+	"missions": [
+		{
+			"name": "The Prize of Gallet",
+			"table": "1",
+			"battleplan": "1",
+			"victoryPoints": [
+				{
+					"description": "Score 1 victory point if you control at least one activated objective.",
+					"points": "1"
+				},
+				{
+					"description": "Score 1 victory point if you control two or more activated objectives.",
+					"points": "1"
+				},
+				{
+					"description": "Score 1 victory point if you control more activated objectives than your opponent.",
+					"points": "1"
+				},
+				{
+					"description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+					"points": "2"
+				}
+			]
+		},
+		{
+			"name": "The Realmstone Cache",
+			"table": "1",
+			"battleplan": "2",
+			"victoryPoints": [
+				{
+					"description": "Score 1 victory point if you control at least one objective.",
+					"points": "1"
+				},
+				{
+					"description": "Score 1 victory point if you control two or more objectives.",
+					"points": "1"
+				},
+				{
+					"description": " Score 1 victory point if you control more objectives than your opponent.",
+					"points": "1"
+				},
+				{
+					"description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+					"points": "2"
+				}
+			]
+		}
+	],
+	"battleTactics": [
+		{
+			"name": "Gaining Momentum",
+			"description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn and you control more objectives than your opponent at the end of this turn."
+		},
+		{
+			"name": "An Eye for an Eye",
+			"description": "You complete this battle tactic if 1 or more friendly units were destroyed in the previous turn and 1 or more enemy units are destroyed during this turn."
+		}
+	]
+}
