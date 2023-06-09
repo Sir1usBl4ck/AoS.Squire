@@ -1,12 +1,10 @@
 {
 	"name": "Pitched Battles ’22-23 S2",
-	"missions": [
-		{
+	"missions": [{
 			"name": "The Prize of Gallet",
 			"table": "1",
 			"battleplan": "1",
-			"victoryPoints": [
-				{
+			"victoryPoints": [{
 					"description": "Score 1 victory point if you control at least one activated objective.",
 					"points": "1"
 				},
@@ -28,8 +26,7 @@
 			"name": "The Realmstone Cache",
 			"table": "1",
 			"battleplan": "2",
-			"victoryPoints": [
-				{
+			"victoryPoints": [{
 					"description": "Score 1 victory point if you control at least one objective.",
 					"points": "1"
 				},
@@ -48,8 +45,7 @@
 			]
 		}
 	],
-	"battleTactics": [
-		{
+	"battleTactics": [{
 			"name": "Gaining Momentum",
 			"description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn and you control more objectives than your opponent at the end of this turn."
 		},
@@ -61,7 +57,7 @@
 			"name": "Desecrate their Lands",
 			"description": "Pick 1 terrain feature or faction terrain feature that is partially or wholly within enemy territory. You complete this battle tactic if you control that terrain feature at the end of this turn."
 		},
-			{
+		{
 			"name": "This One’s Mine",
 			"description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn by an attack made by the model picked to be your general."
 		},
@@ -73,12 +69,12 @@
 			"name": "Lead the Assault",
 			"description": "You complete this battle tactic if at least 2 of the objectives you control are in enemy territory and are each contested by any friendly GALLETIAN CHAMPIONS."
 		},
-			{
+		{
 			"name": "United Offence",
 			"description": "Pick 1 objective controlled by your opponent. You complete this battle tactic if you control that objective and 2 or more friendly GALLETIAN CHAMPIONS are contesting that objective at the end of this turn."
+
 		},
-		},
-			{
+		{
 			"name": "Cunning Manoeuvre",
 			"description": "Pick 1 friendly GALLETIAN CHAMPION on the battlefield that is more than 3'' from all enemy units. You complete this battle tactic if, at the end of the turn, that GALLETIAN CHAMPION is more than 3'' from all enemy units and is contesting an objective you control that is wholly outside your territory."
 		}
