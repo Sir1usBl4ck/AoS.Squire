@@ -56,6 +56,31 @@
 		{
 			"name": "An Eye for an Eye",
 			"description": "You complete this battle tactic if 1 or more friendly units were destroyed in the previous turn and 1 or more enemy units are destroyed during this turn."
+		},
+		{
+			"name": "Desecrate their Lands",
+			"description": "Pick 1 terrain feature or faction terrain feature that is partially or wholly within enemy territory. You complete this battle tactic if you control that terrain feature at the end of this turn."
+		},
+			{
+			"name": "This One’s Mine",
+			"description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn by an attack made by the model picked to be your general."
+		},
+		{
+			"name": "A Matter of Honour",
+			"description": "Pick 1 enemy GALLETIAN CHAMPION or Sworn Bodyguard unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn by an attack made by a friendly GALLETIAN CHAMPION or Sworn Bodyguard unit."
+		},
+		{
+			"name": "Lead the Assault",
+			"description": "You complete this battle tactic if at least 2 of the objectives you control are in enemy territory and are each contested by any friendly GALLETIAN CHAMPIONS."
+		},
+			{
+			"name": "United Offence",
+			"description": "Pick 1 objective controlled by your opponent. You complete this battle tactic if you control that objective and 2 or more friendly GALLETIAN CHAMPIONS are contesting that objective at the end of this turn."
+		},
+		},
+			{
+			"name": "Cunning Manoeuvre",
+			"description": "Pick 1 friendly GALLETIAN CHAMPION on the battlefield that is more than 3'' from all enemy units. You complete this battle tactic if, at the end of the turn, that GALLETIAN CHAMPION is more than 3'' from all enemy units and is contesting an objective you control that is wholly outside your territory."
 		}
 	]
 }
