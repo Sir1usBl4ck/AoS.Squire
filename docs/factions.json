@@ -1,27 +1,499 @@
 [{
-		"id": "1",
-		"name": "Soulblight Gravelords",
-		"battleTactics": [{
-				"name": "Callous Overlord",
-				"description": "Pick 1 friendly SUMMONABLE unit more than 3'' from all enemy units. You complete this tactic if that friendly unit is destroyed during this turn."
-			},
-			{
-				"name": "Cursed Unlife",
-				"description": "You complete this tactic if any wounds allocated to your general or to 2 other friendly VAMPIRE units are healed using The Hunger ability during this turn."
-			}
-		]
+		"factionId": 1,
+		"factionName": "Cities Of Sigmar",
+		"allianceName": "Order",
+		"name": "Sanctify",
+		"description": "Pick 1 friendly FLAGELLANTS unit that is not within 6\" of an objective wholly or partially within enemy territory. You complete this battle tactic if that unit is within 6\" of an objective wholly or partially within enemy territory at the end of this turn."
 	},
 	{
-		"id": "2",
-		"name": "Hedonites of Slaanesh",
-		"battleTactics": [{
-				"name": "Death by a Thousand Cuts",
-				"description": "Pick 1 enemy unit. You complete this tactic if wounds caused by attacks made by 3 or more different friendly units were allocated to that unit during this turn."
-			},
-			{
-				"name": "An Enrapturing Blur",
-				"description": "Pick 1 enemy HERO that has 0 wounds allocated to it. You complete this tactic if that unit is destroyed in the combat phase of this turn before it is picked to fight."
-			}
-		]
+		"factionId": 1,
+		"factionName": "Cities Of Sigmar",
+		"allianceName": "Order",
+		"name": "Banners Held High",
+		"description": "Pick 2 objective markers on the battlefield that are not wholly within your territory and which are more than 12\" apart. You complete this battle tactic if a friendly Standard Bearer model is within 1\" of each objective marker at the end of this turn."
+	},
+	{
+		"factionId": 2,
+		"factionName": "Daughters Of Khaine",
+		"allianceName": "Order",
+		"name": "Clash of Arm",
+		"description": "You complete this tactic if 3 or more friendly units make a charge move this turn."
+	},
+	{
+		"factionId": 2,
+		"factionName": "Daughters Of Khaine",
+		"allianceName": "Order",
+		"name": "Cruel Delight",
+		"description": "You complete this tactic if 2 or more friendly KHINERAI units move using their Fire and Flight ability or Fight and Flight ability this turn."
+	},
+	{
+		"factionId": 2,
+		"factionName": "Daughters Of Khaine",
+		"allianceName": "Order",
+		"name": "Tide of Blades",
+		"description": "You complete this tactic if there are 2 or more units from your starting army wholly within your opponent’s territory at the end of this turn."
+	},
+	{
+		"factionId": 2,
+		"factionName": "Daughters Of Khaine",
+		"allianceName": "Order",
+		"name": "Executioner’s Cult",
+		"description": "You can pick this battle tactic only if there is a friendly HIGH GLADIATRIX on the battlefield. You complete this tactic if an enemy HERO is slain by that unit’s Killing Stroke ability this turn."
+	},
+	{
+		"factionId": 2,
+		"factionName": "Daughters Of Khaine",
+		"allianceName": "Order",
+		"name": "Hatred of Chaos",
+		"description": "You can pick this battle tactic only if you have a Hagg Nar or Khelt Nar army. You complete this tactic if 2 or more CHAOS units are destroyed this turn."
+	},
+	{
+		"factionId": 2,
+		"factionName": "Daughters Of Khaine",
+		"allianceName": "Order",
+		"name": "Unexpected Attack",
+		"description": "You complete this tactic if a friendly KHAINITE SHADOWSTALKERS unit uses its Shadow Leap ability and makes a charge move this turn."
+	},
+	{
+		"factionId": 3,
+		"factionName": "Fyreslayers",
+		"allianceName": "Order",
+		"name": "Settle a Grudge",
+		"description": "Each time a friendly unit is destroyed by wounds caused by an attack, make a note of the enemy unit that made that attack (in a ‘Book of Grudges’, if you wish). When you pick this battle tactic, pick 1 of those enemy units that is still on the battlefield. You complete this tactic if that unit is destroyed during this turn."
+	},
+	{
+		"factionId": 3,
+		"factionName": "Fyreslayers",
+		"allianceName": "Order",
+		"name": "Beastslayer",
+		"description": "Pick 1 enemy MONSTER and 1 friendly HERO. You complete this tactic if that MONSTER is slain by wounds caused by attacks made by that HERO during this turn."
+	},
+	{
+		"factionId": 3,
+		"factionName": "Fyreslayers",
+		"allianceName": "Order",
+		"name": "Grimnir Knows No Mercy",
+		"description": "You complete this tactic at the end of this turn if there are any friendly VULKITE BERZERKERS units on the battlefield and all of them are within 3\" of any enemy units."
+	},
+	{
+		"factionId": 3,
+		"factionName": "Fyreslayers",
+		"allianceName": "Order",
+		"name": "An Honourable Death",
+		"description": "Pick 1 friendly HERO. You complete this tactic if that friendly HERO is slain during this turn and any enemy models were also slain by wounds caused by attacks made by that HERO during this turn."
+	},
+	{
+		"factionId": 3,
+		"factionName": "Fyreslayers",
+		"allianceName": "Order",
+		"name": "Seize by Force",
+		"description": "You can pick this tactic only if you control fewer objectives than your opponent. You complete this tactic if you control more objectives than your opponent at the end of this turn."
+	},
+	{
+		"factionId": 3,
+		"factionName": "Fyreslayers",
+		"allianceName": "Order",
+		"name": "An Ignominious Death",
+		"description": "Pick 1 enemy HERO. You complete this tactic if that enemy HERO is slain by wounds caused by an attack made with a Fyresteel Throwing Axe during this turn."
+	},
+	{
+		"factionId": 4,
+		"factionName": "Idoneth Deepkin",
+		"allianceName": "Order",
+		"name": "Assassins of the High Tide",
+		"description": "You complete this battle tactic if 2 or more enemy units are destroyed during this turn by attacks made by friendly IDONETH DEEPKIN units that are affected by the High Tide ability."
+	},
+	{
+		"factionId": 4,
+		"factionName": "Idoneth Deepkin",
+		"allianceName": "Order",
+		"name": "Predators of the Deep",
+		"description": "Pick 1 unit in your opponent’s starting army that is on the battlefield, that has a Wounds characteristic of 8 or more and that has 0 wounds allocated to it. You complete this tactic if that unit is destroyed during this turn by a friendly AKHELIAN ALLOPEXES unit."
+	},
+	{
+		"factionId": 4,
+		"factionName": "Idoneth Deepkin",
+		"allianceName": "Order",
+		"name": "Revenge of the Namarti",
+		"description": "You complete this battle tactic if an enemy HERO or MONSTER is destroyed during this turn by an attack made by a friendly NAMARTI unit."
+	},
+	{
+		"factionId": 4,
+		"factionName": "Idoneth Deepkin",
+		"allianceName": "Order",
+		"name": "Deny Trespassers",
+		"description": "Pick 1 Gloomtide Shipwreck in your army that is within 12\" of any enemy units. You complete this battle tactic if that Gloomtide Shipwreck is more than 12\" from all enemy units at the end of this turn."
+	},
+	{
+		"factionId": 4,
+		"factionName": "Idoneth Deepkin",
+		"allianceName": "Order",
+		"name": "Trapped in the Undercurrents",
+		"description": "You complete this battle tactic if 3 or more friendly IDONETH DEEPKIN units retreated and made a charge move during this turn."
+	},
+	{
+		"factionId": 4,
+		"factionName": "Idoneth Deepkin",
+		"allianceName": "Order",
+		"name": "Isharann Defiance",
+		"description": "When you reveal this battle tactic, pick 1 objective wholly within enemy territory. At the end of this turn, you complete this battle tactic if you control that objective and there is a friendly ISHARANN unit within 6\" of that objective."
+	},
+	{
+		"factionId": 5,
+		"factionName": "Kharadron Overlords",
+		"allianceName": "Order",
+		"name": "Bombing Run",
+		"description": " Pick 1 enemy unit. You complete this battle tactic if that unit is destroyed during this turn by the Bomb Racks ability of a friendly unit."
+	},
+	{
+		"factionId": 5,
+		"factionName": "Kharadron Overlords",
+		"allianceName": "Order",
+		"name": "Mobilise the Fleet",
+		"description": " You cannot pick this battle tactic in the first battle round. Pick 3 friendly units on the battlefield that are not embarked in SKYVESSELS You complete this battle tactic at the end of the turn if those units are all embarked in SKYVESSELS."
+	},
+	{
+		"factionId": 5,
+		"factionName": "Kharadron Overlords",
+		"allianceName": "Order",
+		"name": "Boots on the Ground",
+		"description": " Pick 3 friendly units embarked in SKYVESSELS. You complete this battle tactic at the end of the turn if those units are not embarked and are wholly within enemy territory."
+	},
+	{
+		"factionId": 5,
+		"factionName": "Kharadron Overlords",
+		"allianceName": "Order",
+		"name": "Opening Salvo",
+		"description": " You can only pick this battle tactic if no units have been destroyed in the battle. You complete this battle tactic if an enemy unit is destroyed in your shooting phase this turn."
+	},
+	{
+		"factionId": 5,
+		"factionName": "Kharadron Overlords",
+		"allianceName": "Order",
+		"name": "Blast ’em to Smithereens",
+		"description": " Pick 1 objective on the battlefield within 12\" of any enemy units. You complete this battle tactic if there are no enemy units within 12\" of that objective at the end of this turn."
+	},
+	{
+		"factionId": 5,
+		"factionName": "Kharadron Overlords",
+		"allianceName": "Order",
+		"name": "Stake a Claim",
+		"description": " You can pick this tactic only if you control fewer objectives than your opponent. You complete this tactic if you control more objectives than your opponent at the end of this turn."
+	},
+	{
+		"factionId": 6,
+		"factionName": "Seraphon",
+		"allianceName": "Order",
+		"name": "Stampede of Scales",
+		"description": " Pick 3 different friendly SERAPHON MONSTERS. You complete this tactic if each of those units runs in the following movement phase and finishes that run within 6\" of at least 1 of the other units you picked and wholly within enemy territory."
+	},
+	{
+		"factionId": 6,
+		"factionName": "Seraphon",
+		"allianceName": "Order",
+		"name": "Celestial Obliteration",
+		"description": " Pick 1 enemy unit on the battlefield. You complete this tactic if that unit is destroyed this turn by mortal wounds caused by a spell or the abilities of an endless spell."
+	},
+	{
+		"factionId": 6,
+		"factionName": "Seraphon",
+		"allianceName": "Order",
+		"name": "Overwhelming Numbers",
+		"description": " Pick 1 objective controlled by the enemy. You complete this tactic at the end of this turn if you control that objective and all friendly units contesting it have the SKINK keyword."
+	},
+	{
+		"factionId": 6,
+		"factionName": "Seraphon",
+		"allianceName": "Order",
+		"name": "Apex Predator",
+		"description": " Pick 1 enemy MONSTER. You complete this tactic at the end of this turn if that enemy unit was destroyed by an attack made by a friendly SERAPHON MONSTER."
+	},
+	{
+		"factionId": 6,
+		"factionName": "Seraphon",
+		"allianceName": "Order",
+		"name": "Cold-blooded Resilience",
+		"description": " Pick 1 friendly SAURUS or KROXIGOR unit within 3\" of an enemy unit. You complete this tactic at the end of this turn if that unit was not destroyed, did not retreat and was not removed from the battlefield."
+	},
+	{
+		"factionId": 6,
+		"factionName": "Seraphon",
+		"allianceName": "Order",
+		"name": "Pack Hunters",
+		"description": " Pick 1 enemy unit within 3\" of only 1 friendly AGGRADON unit. You complete this tactic if, at the end of this turn, that unit is within 3\" of 2 or more friendly AGGRADON units."
+	},
+	{
+		"factionId": 7,
+		"factionName": "Stormcast Eternals",
+		"allianceName": "Order",
+		"name": "Pioneers of the Realms",
+		"description": " You complete this tactic if all of the objectives wholly within your opponent’s territory are contested by friendly CITIES OF SIGMAR units at the end of this turn."
+	},
+	{
+		"factionId": 7,
+		"factionName": "Stormcast Eternals",
+		"allianceName": "Order",
+		"name": "No Challenge Too Great",
+		"description": " You complete this tactic if an enemy HERO is slain by wounds caused by an attack made with a melee weapon by a friendly REDEEMER unit during this turn."
+	},
+	{
+		"factionId": 7,
+		"factionName": "Stormcast Eternals",
+		"allianceName": "Order",
+		"name": "Hammerstrike Assault",
+		"description": " Pick 1 HERO in your opponent’s starting army that is on the battlefield, that has a Wounds characteristic of 10 or more and that has 0 wounds allocated to it. You complete this tactic if that HERO is slain during this turn."
+	},
+	{
+		"factionId": 7,
+		"factionName": "Stormcast Eternals",
+		"allianceName": "Order",
+		"name": "Lightning-shattered Morale",
+		"description": " Pick 1 unit in your opponent’s starting army that is on the battlefield and that has a Bravery characteristic of 10 or more. You complete this tactic if any models in that unit flee during this turn."
+	},
+	{
+		"factionId": 7,
+		"factionName": "Stormcast Eternals",
+		"allianceName": "Order",
+		"name": "Draconith Destruction",
+		"description": " Pick 1 unit in your opponent’s starting army that is on the battlefield and that has 10 or more models. You complete this tactic if that unit is destroyed by wounds caused by attacks made by friendly DRACONITH, STARDRAKE or DRACOTH units during this turn."
+	},
+	{
+		"factionId": 7,
+		"factionName": "Stormcast Eternals",
+		"allianceName": "Order",
+		"name": "A Matter of Honour",
+		"description": " Pick 1 MONSTER in your opponent’s starting army that is on the battlefield. You complete this tactic if that unit is destroyed by wounds caused by attacks made by friendly DRACONITH or STARDRAKE units during this turn."
+	},
+	{
+		"factionId": 8,
+		"factionName": "Sylvaneth",
+		"allianceName": "Order",
+		"name": "Eradicate Trespassers",
+		"description": " Pick 1 enemy unit within 6\" of a friendly Awakened Wyldwood. You complete this battle tactic if that unit is destroyed during this turn."
+	},
+	{
+		"factionId": 8,
+		"factionName": "Sylvaneth",
+		"allianceName": "Order",
+		"name": "Harness the Spirit Paths",
+		"description": " You complete this battle tactic if any models in a friendly SYLVANETH unit that was set up using the From the Woodland Depths battle trait this turn make a charge move this turn."
+	},
+	{
+		"factionId": 8,
+		"factionName": "Sylvaneth",
+		"allianceName": "Order",
+		"name": "Balance the Cycle",
+		"description": " Pick 1 enemy unit within 12\" of an overgrown terrain feature or friendly Awakened Wyldwood. You complete this battle tactic if that unit is destroyed by an attack made by a friendly SYLVANETH unit that was added to your army this turn."
+	},
+	{
+		"factionId": 8,
+		"factionName": "Sylvaneth",
+		"allianceName": "Order",
+		"name": "March of the Forest Lords",
+		"description": " Pick 1 enemy MONSTER on the battlefield. You complete this battle tactic if that MONSTER is slain by an attack made by a friendly SPIRIT OF DURTHU, TREELORD ANCIENT or TREELORD during this turn."
+	},
+	{
+		"factionId": 8,
+		"factionName": "Sylvaneth",
+		"allianceName": "Order",
+		"name": "Unleash Ghyran’s Wrath",
+		"description": " Pick 1 friendly SYLVANETH WIZARD on the battlefield. You complete this battle tactic if a spell successfully cast by that WIZARD, or an endless spell summoned by that WIZARD, destroys an enemy unit this turn."
+	},
+	{
+		"factionId": 9,
+		"factionName": "Beasts of Chaos",
+		"allianceName": "Chaos",
+		"name": "In the Shadow of the Herdstone",
+		"description": " Pick 1 enemy unit within 12\" of your Herdstone. You complete this tactic if that unit is destroyed during this turn."
+	},
+	{
+		"factionId": 9,
+		"factionName": "Beasts of Chaos",
+		"allianceName": "Chaos",
+		"name": "Bestial Wrath",
+		"description": " You can pick this battle tactic only in your first or second turn. You complete this tactic if your general and 2 or more other friendly BEASTS OF CHAOS units are within 3\" of any enemy units at the end of this turn."
+	},
+	{
+		"factionId": 9,
+		"factionName": "Beasts of Chaos",
+		"allianceName": "Chaos",
+		"name": "Rampaging Beastherd",
+		"description": " Pick 1 objective controlled by your opponent. You complete this tactic if you control that objective at the end of this turn and that objective is contested by a friendly unit that has 10 or more models."
+	},
+	{
+		"factionId": 9,
+		"factionName": "Beasts of Chaos",
+		"allianceName": "Chaos",
+		"name": "Reduced to Savagery",
+		"description": " Pick 1 enemy unit on the battlefield. You complete this tactic if that unit is picked as the target of a heroic action from the Rituals of Ruin battle trait and is destroyed during this turn."
+	},
+	{
+		"factionId": 9,
+		"factionName": "Beasts of Chaos",
+		"allianceName": "Chaos",
+		"name": "Trampled to Mulch",
+		"description": " You complete this tactic if any enemy units are destroyed during this turn by mortal wounds allocated in your charge phase."
+	},
+	{
+		"factionId": 9,
+		"factionName": "Beasts of Chaos",
+		"allianceName": "Chaos",
+		"name": "Aid of the Wilderness",
+		"description": " You complete this tactic if there are 2 or more friendly BEASTS OF CHAOS units wholly on a terrain feature that is wholly outside of your territory at the end of this turn."
+	},
+	{
+		"factionId": 10,
+		"factionName": "Blades of Khorne",
+		"allianceName": "Chaos",
+		"name": "Blood for the Altar",
+		"description": " Pick 1 enemy unit within 8\" of your Skull Altar. You complete this battle tactic if that enemy unit is destroyed during this turn."
+	},
+	{
+		"factionId": 11,
+		"factionName": "Blades of Khorne",
+		"allianceName": "Chaos",
+		"name": "Slay the Sorcerer",
+		"description": " Pick 1 enemy WIZARD HERO on the battlefield. You complete this battle tactic if that HERO is slain during this turn."
+	},
+	{
+		"factionId": 12,
+		"factionName": "Blades of Khorne",
+		"allianceName": "Chaos",
+		"name": "The Trial of Skulls",
+		"description": " Pick 1 friendly unit. You complete this battle tactic if 8 or more enemy models are slain by attacks made by that unit during this turn."
+	},
+	{
+		"factionId": 13,
+		"factionName": "Blades of Khorne",
+		"allianceName": "Chaos",
+		"name": "No Cowards Among Us",
+		"description": " You complete this battle tactic at the end of this turn if all friendly BLADES OF KHORNE units on the battlefield are within 8\" of any enemy units."
+	},
+	{
+		"factionId": 14,
+		"factionName": "Blades of Khorne",
+		"allianceName": "Chaos",
+		"name": "Leave None Standing",
+		"description": " Pick 1 friendly unit within 3\" of any enemy units. You complete this battle tactic if that unit fights in the combat phase of this turn and at the end of that phase there are no enemy units within 3\" of that unit."
+	},
+	{
+		"factionId": 15,
+		"factionName": "Blades of Khorne",
+		"allianceName": "Chaos",
+		"name": "The Battlefield Runs Red",
+		"description": " You complete this battle tactic if 4 or more units were destroyed during this turn."
+	},
+	{
+		"factionId": 16,
+		"factionName": "Disciples of Tzeentch",
+		"allianceName": "Chaos",
+		"name": "Call for Change",
+		"description": " You complete this battle tactic if you summon a Lord of Change to the battlefield this turn."
+	},
+	{
+		"factionId": 16,
+		"factionName": "Disciples of Tzeentch",
+		"allianceName": "Chaos",
+		"name": "Mass Conjuration",
+		"description": " Pick 1 friendly DISCIPLES OF TZEENTCH WIZARD. You complete this battle tactic if that WIZARD successfully casts 3 or more spells in that turn and none of those spells are unbound."
+	},
+	{
+		"factionId": 16,
+		"factionName": "Disciples of Tzeentch",
+		"allianceName": "Chaos",
+		"name": "Ninefold Dismantlement",
+		"description": " Pick 1 enemy unit that has 9 or more models, or pick 1 enemy HERO or MONSTER with a Wounds characteristic of 9 or more. You complete this battle tactic if that unit is destroyed by the end of this turn."
+	},
+	{
+		"factionId": 16,
+		"factionName": "Disciples of Tzeentch",
+		"allianceName": "Chaos",
+		"name": "Reckless Abandon",
+		"description": " Pick 1 friendly MORTAL DISCIPLES OF TZEENTCH unit that is more than 18\" from all enemy units. You complete this battle tactic if that unit completes a charge move in this turn."
+	},
+	{
+		"factionId": 16,
+		"factionName": "Disciples of Tzeentch",
+		"allianceName": "Chaos",
+		"name": "Tides of Anarchy",
+		"description": " You complete this battle tactic if you gain control of an objective that was controlled by your opponent at the start of your hero phase, and you have 9 or more friendly models within 6\" of that objective when you gain control of it."
+	},
+	{
+		"factionId": 17,
+		"factionName": "Hedonites of Slaanesh",
+		"allianceName": "Chaos",
+		"name": "Death by a Thousand Cuts",
+		"description": " Pick 1 enemy unit. You complete this tactic if wounds caused by attacks made by 3 or more different friendly units were allocated to that unit during this turn."
+	},
+	{
+		"factionId": 17,
+		"factionName": "Hedonites of Slaanesh",
+		"allianceName": "Chaos",
+		"name": "An Enrapturing Blur",
+		"description": " Pick 1 enemy HERO that has 0 wounds allocated to it. You complete this tactic if that unit is destroyed in the combat phase of this turn before it is picked to fight."
+	},
+	{
+		"factionId": 17,
+		"factionName": "Hedonites of Slaanesh",
+		"allianceName": "Chaos",
+		"name": "The Grand Feast",
+		"description": " You complete this tactic if you gain 12 or more depravity points from the Euphoric Killers battle trait during this turn."
+	},
+	{
+		"factionId": 17,
+		"factionName": "Hedonites of Slaanesh",
+		"allianceName": "Chaos",
+		"name": "Excessive Carnage",
+		"description": " Pick 1 enemy unit that is contesting an objective. You complete this tactic if you pick that unit using the Euphoric Killers battle trait and that unit is destroyed during this turn."
+	},
+	{
+		"factionId": 17,
+		"factionName": "Hedonites of Slaanesh",
+		"allianceName": "Chaos",
+		"name": "Realm-racers",
+		"description": " You complete this tactic if 3 or more different friendly HEDONITES OF SLAANESH units make a charge move of 7\" or more during this turn."
+	},
+	{
+		"factionId": 17,
+		"factionName": "Hedonites of Slaanesh",
+		"allianceName": "Chaos",
+		"name": "Depraved Unity",
+		"description": " Pick 1 objective that you do not control. You complete this tactic if you control that objective at the end of this turn and at least 1 friendly HEDONITES OF SLAANESH MORTAL unit and 1 friendly HEDONITES OF SLAANESH DAEMON unit are contesting that objective."
+	},
+	{
+		"factionId": 18,
+		"factionName": "Nighthaunt",
+		"name": "Overwhelmed with Dread",
+		"description": "When you reveal this battle tactic, pick 1 enemy unit on the battlefield. You complete this tactic if that unit is affected by the Shriek, Stun and Petrify effects of the Wave of Terror battle trait during this turn."
+	},
+	{
+		"factionId": 18,
+		"factionName": "Nighthaunt",
+		"name": "Tides of Terror",
+		"description": "You complete this tactic if at least 2 friendly NIGHTHAUNT units are within 1\/2\" of the same enemy unit at the end of this turn."
+	},
+	{
+		"factionId": 18,
+		"factionName": "Nighthaunt",
+		"name": "Mass Panic",
+		"description": "You complete this tactic at the end of this turn if 3 or more enemy units on the battlefield are terrified."
+	},
+	{
+		"factionId": 18,
+		"factionName": "Nighthaunt",
+		"name": "Death by a Thousand Cuts",
+		"description": "You complete this tactic if an enemy HERO or MONSTER is destroyed by attacks made by a friendly CHAINRASPS or SPIRIT HOST unit during this turn."
+	},
+	{
+		"factionId": 18,
+		"factionName": "Nighthaunt",
+		"name": "One Stop, No Return",
+		"description": "When you reveal this battle tactic, pick 1 objective marker on the battlefield that your opponent controls. You complete this battle tactic if you control that objective marker at the end of this turn and there is a friendly BLACK COACH within 3\" of that objective."
+	},
+	{
+		"factionId": 18,
+		"factionName": "Nighthaunt",
+		"name": "Ceaseless Nightmares",
+		"description": "You complete this tactic if 2 or more terrified enemy units fail a battleshock test during this turn."
 	}
 ]
