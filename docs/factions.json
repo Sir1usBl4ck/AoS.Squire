@@ -349,117 +349,140 @@
 		"description": " Pick 1 enemy unit within 8\" of your Skull Altar. You complete this battle tactic if that enemy unit is destroyed during this turn."
 	},
 	{
-		"factionId": 11,
+		"factionId": 10,
 		"factionName": "Blades of Khorne",
 		"allianceName": "Chaos",
 		"name": "Slay the Sorcerer",
 		"description": " Pick 1 enemy WIZARD HERO on the battlefield. You complete this battle tactic if that HERO is slain during this turn."
 	},
 	{
-		"factionId": 12,
+		"factionId": 10,
 		"factionName": "Blades of Khorne",
 		"allianceName": "Chaos",
 		"name": "The Trial of Skulls",
 		"description": " Pick 1 friendly unit. You complete this battle tactic if 8 or more enemy models are slain by attacks made by that unit during this turn."
 	},
 	{
-		"factionId": 13,
+		"factionId": 10,
 		"factionName": "Blades of Khorne",
 		"allianceName": "Chaos",
 		"name": "No Cowards Among Us",
 		"description": " You complete this battle tactic at the end of this turn if all friendly BLADES OF KHORNE units on the battlefield are within 8\" of any enemy units."
 	},
 	{
-		"factionId": 14,
+		"factionId": 10,
 		"factionName": "Blades of Khorne",
 		"allianceName": "Chaos",
 		"name": "Leave None Standing",
 		"description": " Pick 1 friendly unit within 3\" of any enemy units. You complete this battle tactic if that unit fights in the combat phase of this turn and at the end of that phase there are no enemy units within 3\" of that unit."
 	},
 	{
-		"factionId": 15,
+		"factionId": 10,
 		"factionName": "Blades of Khorne",
 		"allianceName": "Chaos",
 		"name": "The Battlefield Runs Red",
 		"description": " You complete this battle tactic if 4 or more units were destroyed during this turn."
 	},
 	{
-		"factionId": 16,
+		"factionId": 11,
 		"factionName": "Disciples of Tzeentch",
 		"allianceName": "Chaos",
 		"name": "Call for Change",
 		"description": " You complete this battle tactic if you summon a Lord of Change to the battlefield this turn."
 	},
 	{
-		"factionId": 16,
+		"factionId": 11,
 		"factionName": "Disciples of Tzeentch",
 		"allianceName": "Chaos",
 		"name": "Mass Conjuration",
 		"description": " Pick 1 friendly DISCIPLES OF TZEENTCH WIZARD. You complete this battle tactic if that WIZARD successfully casts 3 or more spells in that turn and none of those spells are unbound."
 	},
 	{
-		"factionId": 16,
+		"factionId": 11,
 		"factionName": "Disciples of Tzeentch",
 		"allianceName": "Chaos",
 		"name": "Ninefold Dismantlement",
 		"description": " Pick 1 enemy unit that has 9 or more models, or pick 1 enemy HERO or MONSTER with a Wounds characteristic of 9 or more. You complete this battle tactic if that unit is destroyed by the end of this turn."
 	},
 	{
-		"factionId": 16,
+		"factionId": 11,
 		"factionName": "Disciples of Tzeentch",
 		"allianceName": "Chaos",
 		"name": "Reckless Abandon",
 		"description": " Pick 1 friendly MORTAL DISCIPLES OF TZEENTCH unit that is more than 18\" from all enemy units. You complete this battle tactic if that unit completes a charge move in this turn."
 	},
 	{
-		"factionId": 16,
+		"factionId": 11,
 		"factionName": "Disciples of Tzeentch",
 		"allianceName": "Chaos",
 		"name": "Tides of Anarchy",
 		"description": " You complete this battle tactic if you gain control of an objective that was controlled by your opponent at the start of your hero phase, and you have 9 or more friendly models within 6\" of that objective when you gain control of it."
 	},
 	{
-		"factionId": 17,
+		"factionId": 12,
 		"factionName": "Hedonites of Slaanesh",
 		"allianceName": "Chaos",
 		"name": "Death by a Thousand Cuts",
 		"description": " Pick 1 enemy unit. You complete this tactic if wounds caused by attacks made by 3 or more different friendly units were allocated to that unit during this turn."
 	},
 	{
-		"factionId": 17,
+		"factionId": 12,
 		"factionName": "Hedonites of Slaanesh",
 		"allianceName": "Chaos",
 		"name": "An Enrapturing Blur",
 		"description": " Pick 1 enemy HERO that has 0 wounds allocated to it. You complete this tactic if that unit is destroyed in the combat phase of this turn before it is picked to fight."
 	},
 	{
-		"factionId": 17,
+		"factionId": 12,
 		"factionName": "Hedonites of Slaanesh",
 		"allianceName": "Chaos",
 		"name": "The Grand Feast",
 		"description": " You complete this tactic if you gain 12 or more depravity points from the Euphoric Killers battle trait during this turn."
 	},
 	{
-		"factionId": 17,
+		"factionId": 12,
 		"factionName": "Hedonites of Slaanesh",
 		"allianceName": "Chaos",
 		"name": "Excessive Carnage",
 		"description": " Pick 1 enemy unit that is contesting an objective. You complete this tactic if you pick that unit using the Euphoric Killers battle trait and that unit is destroyed during this turn."
 	},
 	{
-		"factionId": 17,
+		"factionId": 12,
 		"factionName": "Hedonites of Slaanesh",
 		"allianceName": "Chaos",
 		"name": "Realm-racers",
 		"description": " You complete this tactic if 3 or more different friendly HEDONITES OF SLAANESH units make a charge move of 7\" or more during this turn."
 	},
 	{
-		"factionId": 17,
+		"factionId": 12,
 		"factionName": "Hedonites of Slaanesh",
 		"allianceName": "Chaos",
 		"name": "Depraved Unity",
 		"description": " Pick 1 objective that you do not control. You complete this tactic if you control that objective at the end of this turn and at least 1 friendly HEDONITES OF SLAANESH MORTAL unit and 1 friendly HEDONITES OF SLAANESH DAEMON unit are contesting that objective."
 	},
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
 	{
 		"factionId": 18,
 		"factionName": "Nighthaunt",
