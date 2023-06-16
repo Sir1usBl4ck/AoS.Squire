@@ -718,13 +718,7 @@
   "factionName": "Soulblight Gravelords",
   "allianceName": "Death",
   "name": "Endless Nightmare",
-  "description": " Pick 1 friendly SOULBLIGHT GRAVELORDS SUMMONABLE unit on the battlefield. You complete this tactic if 6 or more slain models are returned to that unit during"
- },
- {
-  "factionId": 19,
-  "factionName": "Soulblight Gravelords",
-  "allianceName": "Death",
-  "name": "this turn."
+  "description": " Pick 1 friendly SOULBLIGHT GRAVELORDS SUMMONABLE unit on the battlefield. You complete this tactic if 6 or more slain models are returned to that unit during this turn."
  },
  {
   "factionId": 20,
