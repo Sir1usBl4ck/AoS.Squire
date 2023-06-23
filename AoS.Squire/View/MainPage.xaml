@@ -2,14 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AoS.Squire.View.MainPage"
-             Title="New Game">
-    <VerticalStackLayout Spacing="20" Padding="20">
-        <Label 
-            Text="Start a new game"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="Player 1" />
-        <Button Text="Player 2" />
-        <Button Text="Start Game"  VerticalOptions="End"/>
+             Title="{Binding Title}" Shell.TabBarIsVisible="False" Shell.NavBarIsVisible="False">
+    <VerticalStackLayout Padding="20" Spacing="64" VerticalOptions="Center">
+        <Image Source="home_screen.png" MaximumHeightRequest="200"></Image>
+        <Label Text="Aos SQUIRE"
+               FontAttributes="Bold"
+               FontSize="24"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <Grid>
+            <Button IsEnabled="{Binding IsNotBusy}"
+                    Text="New Game"
+                    Command="{Binding NewGameCommand}" IsVisible="{Binding IsNotBusy}"/>
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="Center" />
+        </Grid>
+       
+        <Label Text="v 0.0.1"
+               FontSize="12"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        
+
     </VerticalStackLayout>
 </ContentPage>

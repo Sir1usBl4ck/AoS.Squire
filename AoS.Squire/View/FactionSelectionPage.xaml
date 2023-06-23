@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AoS.Squire.View.FactionSelectionPage"
+             Title="{Binding Title}">
+    <Grid Padding="24" >
+       
+        <CollectionView x:Name="factions"
+                        MaximumHeightRequest="400"
+                        VerticalOptions="Fill"
+                        ItemsSource="{Binding Factions}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding Player.Faction}"
+                        SelectionChangedCommand="{Binding SelectionChangedCommand}"
+                        SelectionChangedCommandParameter="{Binding Player.Faction}">
+         
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Padding="10"
+                           Text="{Binding Name}"></Label>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

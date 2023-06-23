@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AoS.Squire.View.GameSetupPage"
+             Title="Game Setup">
+    <VerticalStackLayout Padding="40"
+                         Spacing="24">
+
+        <VerticalStackLayout Spacing="8">
+            <Label HorizontalOptions="Start"
+                   Text="Player"
+                   FontSize="12"></Label>
+            <Button Text="{Binding Player1Faction}"
+                    Style="{StaticResource LightButton}"
+                    HorizontalOptions="Fill"
+                    Command="{Binding GoToPlayerAllianceSelectionCommand}">
+            </Button>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="8">
+            <Label HorizontalOptions="Start"
+                   FontSize="12"
+                   Text="Opponent"></Label>
+            <Button Text="{Binding Player2Faction}"
+                    Style="{StaticResource LightButton}"
+                    HorizontalOptions="Fill"
+                    Command="{Binding GoToOpponentAllianceSelectionCommand}">
+            </Button>
+        </VerticalStackLayout>
+        <BoxView HeightRequest="0.5"
+                 HorizontalOptions="Fill"
+                 Margin="0,20"></BoxView>
+
+        <VerticalStackLayout Spacing="8">
+            <Label HorizontalOptions="Start"
+                   FontSize="12"
+                   Text="Mission"></Label>
+            <Button VerticalOptions="Center"
+                    Style="{StaticResource LightButton}"
+                    Text="{Binding MissionName}"
+                    Command="{Binding GoToMissionPickerCommand}"></Button>
+        </VerticalStackLayout>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center" />
+        <Button IsVisible="{Binding IsNotBusy}"
+                Margin="0,64,0,0"
+                VerticalOptions="End"
+                Text="Start Game"
+                Command="{Binding StartGameCommand}"></Button>
+    </VerticalStackLayout>
+</ContentPage>

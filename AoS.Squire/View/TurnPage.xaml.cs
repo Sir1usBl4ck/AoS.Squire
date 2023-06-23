@@ -2,11 +2,12 @@ using AoS.Squire.ViewModel;
 
 namespace AoS.Squire.View;
 
-public partial class MainPage : ContentPage
+public partial class TurnPage : ContentPage
 {
-	public MainPage(MainPageViewModel viewModel)
+	public TurnPage(TurnPageViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
-	}
+        
+    }
 }

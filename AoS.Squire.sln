@@ -5,11 +5,6 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoS.Squire", "AoS.Squire\AoS.Squire.csproj", "{E39C1128-2DB9-4602-B41C-B8405CFB63DF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BA72B7CB-8D25-49D9-A310-9B4E6F9C5ABE}"
-	ProjectSection(SolutionItems) = preProject
-		AoS.Squire\docs\factions.json = AoS.Squire\docs\factions.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="using:AoS.Squire.Components"
+             x:Class="AoS.Squire.View.EndGamePage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             Title="EndGamePage">
+    <VerticalStackLayout Spacing="80">
+        <Grid Padding="12" ColumnDefinitions="*,Auto,*">
+           <components:GameReportView Grid.Column="0" BindingContext="{Binding PlayerRecap}"></components:GameReportView>
+            <BoxView Grid.Column="1"
+                     WidthRequest="0.5"
+                     HorizontalOptions="Fill"
+                     Margin="0,20"></BoxView>
+            <components:GameReportView Grid.Column="2" BindingContext="{Binding OpponentRecap}"></components:GameReportView>
+
+        </Grid>
+        <Button Text="Quit" Command="{Binding QuitCommand}"></Button>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

@@ -2,9 +2,9 @@ using AoS.Squire.ViewModel;
 
 namespace AoS.Squire.View;
 
-public partial class MainPage : ContentPage
+public partial class MissionPickerPage : ContentPage
 {
-	public MainPage(MainPageViewModel viewModel)
+	public MissionPickerPage(MissionPickerViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
