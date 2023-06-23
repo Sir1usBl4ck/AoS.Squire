@@ -2,9 +2,9 @@ using AoS.Squire.ViewModel;
 
 namespace AoS.Squire.View;
 
-public partial class MainPage : ContentPage
+public partial class GameSetupPage : ContentPage
 {
-	public MainPage(MainPageViewModel viewModel)
+	public GameSetupPage(GameSetupViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;

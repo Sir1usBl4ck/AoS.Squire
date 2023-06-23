@@ -1,48 +1,24 @@
-﻿namespace AoS.Squire.Model;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-public class Game
-{
-    public Player Player1 { get; set; }
-    public Player Player2 { get; set; }
-    public List<BattleRound> BattleRounds { get; set; }
-}
-public class Faction
-{
-    public string Name { get; set; }
-    public List<BattleTactic> BattleTactics { get; set; }
-}
+namespace AoS.Squire.Model;
 
-public class BattleTactic
+public partial class Player : ObservableObject
 {
-    public bool IsUsed { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-}
+    [ObservableProperty]
+    private string _name;
+    [ObservableProperty]
+    private Faction _faction;
 
-public class BattleRound
-{
-    public int RoundNumber { get; set; }
-    public Player PriorityPlayer { get; set; }
-    public Turn Turn1 { get; set; }
-    public Turn Turn2 { get; set; }
-}
+    [ObservableProperty] 
+    private bool _isGranStrategyCompleted;
 
-public class Turn
-{
-    public List<ScoreGenerator> ScoreGenerators { get; set; }
+    public bool IsOpponent { get; set; }
 
-}
+    public List<BattleTactic> AvailableBattleTactics { get; set; } = new();
 
-public class ScoreGenerator
-{
-    public string Name { get; set; }
-    public int Points { get; set; }
-    public bool IsScored { get; set; }
-}
-
-public class Player
-{
-    public string Name { get; set; }
-    public Faction Faction { get; set; }
+    public int Id { get; set; }
+    
 }
 

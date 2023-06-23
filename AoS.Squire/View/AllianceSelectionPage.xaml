@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AoS.Squire.View.AllianceSelectionPage"
+             Title="Choose Alliance">
+    <VerticalStackLayout Spacing="12"
+                         Margin="0,24,0,0"
+                         Padding="24">
+      <Button HorizontalOptions="Fill"
+              Style="{StaticResource LightButton}"
+                Text="Order"
+                Command="{Binding SelectAllianceCommand}"
+                CommandParameter="order"></Button>
+        <Button HorizontalOptions="Fill"
+              Style="{StaticResource LightButton}"
+                Text="Chaos"
+                Command="{Binding SelectAllianceCommand}"
+                CommandParameter="chaos"></Button>
+        <Button HorizontalOptions="Fill"
+              Style="{StaticResource LightButton}"
+                Text="Death"
+                Command="{Binding SelectAllianceCommand}"
+                CommandParameter="death"></Button>
+        <Button HorizontalOptions="Fill"
+              Style="{StaticResource LightButton}"
+                Text="Destruction"
+                Command="{Binding SelectAllianceCommand}"
+                CommandParameter="destruction"></Button>
+    </VerticalStackLayout>
+</ContentPage>

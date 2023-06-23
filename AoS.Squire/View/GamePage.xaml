@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:AoS.Squire.Model"
+             xmlns:components="clr-namespace:AoS.Squire.Components"
+             x:Class="AoS.Squire.View.GamePage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
+             Title="Game">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding EndGameCommand}"></BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+    <Grid Padding="8"
+          RowDefinitions="Auto,*,Auto,Auto">
+        <Grid Margin="6">
+            <Label FontSize="24" Text="{Binding CurrentRound.BattleRoundNumber, StringFormat='Round {0}'}" FontAttributes="Bold"></Label>
+            <Label HorizontalOptions="End" FontSize="24" FontAttributes="Bold">
+                <Label.Text>
+                    <MultiBinding StringFormat="{}{0} - {1}">
+                        <Binding Path="PlayerScore"></Binding>
+                        <Binding Path="OpponentScore"></Binding>
+
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            
+        </Grid>
+        <CarouselView Grid.Row="1"
+                      
+                      CurrentItem="{Binding CurrentRound}"
+                      ItemsSource="{Binding BattleRounds}"
+                      IndicatorView="indicatorView"
+                      Loop="False">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                        <Grid  RowDefinitions="*,*">
+
+
+                            <components:TurnView Grid.Row="0"
+                                                 BindingContext="{Binding PlayerTurn}" />
+                            
+                            <components:TurnView Grid.Row="1"
+                                                 BindingContext="{Binding OpponentTurn}" />
+                        </Grid>
+
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+
+        </CarouselView>
+        <IndicatorView Grid.Row="2"
+                       x:Name="indicatorView"
+                       Margin="0,0,0,10"
+                       IndicatorColor="LightGray"
+                       SelectedIndicatorColor="DarkGray"
+                       HorizontalOptions="Center" />
+        <Button Grid.Row="3"
+                Text="End Game"
+                Command="{Binding EndGameCommand}"></Button>
+    </Grid>
+</ContentPage>
