@@ -1,82 +1,315 @@
 {
-	"name": "Pitched Battles ’22-23 S2",
-	"missions": [{
-			"name": "The Prize of Gallet",
-			"table": "1",
-			"battleplan": "1",
-			"victoryPoints": [{
-					"description": "Score 1 victory point if you control at least one activated objective.",
-					"points": "1"
-				},
-				{
-					"description": "Score 1 victory point if you control two or more activated objectives.",
-					"points": "1"
-				},
-				{
-					"description": "Score 1 victory point if you control more activated objectives than your opponent.",
-					"points": "1"
-				},
-				{
-					"description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
-					"points": "2"
-				}
-			]
-		},
-		{
-			"name": "The Realmstone Cache",
-			"table": "1",
-			"battleplan": "2",
-			"victoryPoints": [{
-					"description": "Score 1 victory point if you control at least one objective.",
-					"points": "1"
-				},
-				{
-					"description": "Score 1 victory point if you control two or more objectives.",
-					"points": "1"
-				},
-				{
-					"description": " Score 1 victory point if you control more objectives than your opponent.",
-					"points": "1"
-				},
-				{
-					"description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
-					"points": "2"
-				}
-			]
-		}
-	],
-	"battleTactics": [{
-			"name": "Gaining Momentum",
-			"description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn and you control more objectives than your opponent at the end of this turn."
-		},
-		{
-			"name": "An Eye for an Eye",
-			"description": "You complete this battle tactic if 1 or more friendly units were destroyed in the previous turn and 1 or more enemy units are destroyed during this turn."
-		},
-		{
-			"name": "Desecrate their Lands",
-			"description": "Pick 1 terrain feature or faction terrain feature that is partially or wholly within enemy territory. You complete this battle tactic if you control that terrain feature at the end of this turn."
-		},
-		{
-			"name": "This One’s Mine",
-			"description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn by an attack made by the model picked to be your general."
-		},
-		{
-			"name": "A Matter of Honour",
-			"description": "Pick 1 enemy GALLETIAN CHAMPION or Sworn Bodyguard unit on the battlefield. You complete this battle tactic if that unit is destroyed during this turn by an attack made by a friendly GALLETIAN CHAMPION or Sworn Bodyguard unit."
-		},
-		{
-			"name": "Lead the Assault",
-			"description": "You complete this battle tactic if at least 2 of the objectives you control are in enemy territory and are each contested by any friendly GALLETIAN CHAMPIONS."
-		},
-		{
-			"name": "United Offence",
-			"description": "Pick 1 objective controlled by your opponent. You complete this battle tactic if you control that objective and 2 or more friendly GALLETIAN CHAMPIONS are contesting that objective at the end of this turn."
-
-		},
-		{
-			"name": "Cunning Manoeuvre",
-			"description": "Pick 1 friendly GALLETIAN CHAMPION on the battlefield that is more than 3'' from all enemy units. You complete this battle tactic if, at the end of the turn, that GALLETIAN CHAMPION is more than 3'' from all enemy units and is contesting an objective you control that is wholly outside your territory."
-		}
-	]
+  "name": "Pitched Battles ’23-24",
+  "missions": [
+    {
+      "name": "Geomantic Pulse",
+      "table": "1",
+      "battleplan": "1",
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you control the pulse",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point for each objective adjacent to the pulse that you control.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Nexus Collpase",
+      "table": 1,
+      "battleplan": 2,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Lines of Communication",
+      "table": 1,
+      "battleplan": 3,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Every Step is Forward",
+      "table": 1,
+      "battleplan": 4,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Limited Resources",
+      "table": 1,
+      "battleplan": 5,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Spring the Trap",
+      "table": 1,
+      "battleplan": 6,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Fountains of Frost",
+      "table": 2,
+      "battleplan": 1,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "The Icefields",
+      "table": 2,
+      "battleplan": 2,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Power Flux",
+      "table": 2,
+      "battleplan": 3,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control both activated  objectives",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point for each activated objective you control that is contested by a friendly ANDTORIAN LOCUS and that has no enemy ANDTORIAN LOCUS units contesting it.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if any enemy WIZARD units were destroyed in that battle round.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "The Frigid Zephyr",
+      "table": 2,
+      "battleplan": 4,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "No Reward Withour Risk",
+      "table": 2,
+      "battleplan": 5,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control two ore more objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        },
+        {
+          "description": "Score 2 victory points if you completed the battle tactic you picked that turn.",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "name": "Towers in the Tundra",
+      "table": 2,
+      "battleplan": 6,
+      "victoryPoints": [
+        {
+          "description": "Score 1 victory point if you control at least one objective.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control both objectives.",
+          "points": "1"
+        },
+        {
+          "description": "Score 1 victory point if you control more objectives than your opponent.",
+          "points": "1"
+        }
+      ]
+    }
+  ],
+  "battleTactics": [
+    {
+      "name": "Intimidate the Invaders",
+      "description": "You complete this battle tactic at the end of your turn if there are more friendly units wholly outside your territory thatn there are friendly units within your territory."
+    },
+    {
+      "name": "Reprisal",
+      "description": "You complete this battle tactic if an enemy unit that destroyed a friendly general earlier in the battle is destroyed in this turn."
+    },
+    {
+      "name": "Endless Expropriation",
+      "description": "Pick 1 enemy unit that is controlling or bonded to an endless spell or INCARNATE. You complete this battle tactic at the end of your turn if any of the following are true: That enemy unit has been destroyed. That endless spell is wild. That endless spell is controlled by or bonded to a friendly unit. That INCARNATE is wild. "
+    },
+    {
+      "name": "Magical Dominance",
+      "description": "You complete this battle tactic at the end of your turn if a friendly WIZARD unit successfully cast 1 or more spells and none of the spells cast by any units in your army were unbound. "
+    },
+    {
+      "name": "Magical Mayhem",
+      "description": "Pick 1 enemy unit on the battlefield. You complete this battle tactic if that unit is destroyed by damage inflicted by a spell or the abilities of an endless spell. "
+    },
+    {
+      "name": "Bait and Trap",
+      "description": "You complete this battle tactic if 2 or more friendly units retreated this turn and 2 or more different friendly units made a charge move this turn. "
+    },
+    {
+      "name": "Led into the Maelstrom",
+      "description": "You complete this battle tactic if 1 or more friendly HEROES and 1 or more friendly Battleline units each made a charge move this turn and at least 1 of those units is within 3\" of an enemy unit at the end of the turn. "
+    },
+    {
+      "name": "Surround and Destroy",
+      "description": "Pick 3 different friendly units on the battlefield. You complete this battle tactic at the end of your turn if each of those units is wholly within 6\" of a different battlefield edge and 2 or more of those units are wholly outside your territory. "
+    }
+  ]
 }
