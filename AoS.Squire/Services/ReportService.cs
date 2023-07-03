@@ -1,5 +1,4 @@
 ﻿using AoS.Squire.Model;
-using CommunityToolkit.Maui.Core.Views;
 
 namespace AoS.Squire.Services;
 

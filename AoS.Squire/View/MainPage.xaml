@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AoS.Squire.View.MainPage"
-             Title="{Binding Title}" Shell.TabBarIsVisible="False" Shell.NavBarIsVisible="False">
+             Title="{Binding Title}" Shell.TabBarIsVisible="True" Shell.NavBarIsVisible="False">
     <VerticalStackLayout Padding="20" Spacing="64" VerticalOptions="Center">
         <Image Source="home_screen.png" MaximumHeightRequest="200"></Image>
         <Label Text="Aos SQUIRE"
@@ -20,7 +20,7 @@
                                VerticalOptions="Center" />
         </Grid>
        
-        <Label Text="v 0.0.1"
+        <Label Text="{Binding Version, StringFormat='v {0}'}"
                FontSize="12"
                VerticalOptions="Center"
                HorizontalOptions="Center" />

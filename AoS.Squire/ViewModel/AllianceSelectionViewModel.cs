@@ -1,5 +1,4 @@
 ﻿using AoS.Squire.Model;
-using AoS.Squire.Services;
 using AoS.Squire.Store;
 using AoS.Squire.View;
 using CommunityToolkit.Mvvm.ComponentModel;

@@ -21,7 +21,7 @@
                Grid.Column="0"
                Margin="5">
             <VerticalStackLayout>
-                <Label FontSize="22"
+                <Label FontSize="18"
                        FontAttributes="Bold"
                        Text="{Binding TotalNumberOfGames}"
                        HorizontalOptions="Center"></Label>
@@ -38,7 +38,7 @@
             <HorizontalStackLayout Spacing="20"
                                    HorizontalOptions="Center">
                 <VerticalStackLayout>
-                    <Label FontSize="22"
+                    <Label FontSize="18"
                            FontAttributes="Bold"
                            Text="{Binding Wins}"
                            HorizontalOptions="Center"></Label>
@@ -48,7 +48,7 @@
                            HorizontalOptions="Center"></Label>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
-                    <Label FontSize="22"
+                    <Label FontSize="18"
                            FontAttributes="Bold"
                            Text="{Binding Losses}"
                            HorizontalOptions="Center"></Label>
@@ -58,7 +58,7 @@
                            HorizontalOptions="Center"></Label>
                 </VerticalStackLayout>
                 <VerticalStackLayout>
-                    <Label FontSize="22"
+                    <Label FontSize="18"
                            FontAttributes="Bold"
                            Text="{Binding Draws}"
                            HorizontalOptions="Center"></Label>
@@ -75,7 +75,7 @@
                 Grid.Column="2"
                 Margin="5" >
             <VerticalStackLayout VerticalOptions="Fill">
-                <Label FontSize="22"
+                <Label FontSize="18"
                        FontAttributes="Bold"
                        Text="{Binding WinRate, StringFormat='{0}%'}"
                        HorizontalOptions="Center"></Label>

@@ -10,4 +10,13 @@ public partial class TurnPage : ContentPage
 		BindingContext = viewModel;
         
     }
+
+    protected override void OnDisappearing()
+    {
+        if (BindingContext is TurnPageViewModel vm)
+        {
+            vm.CalculateScore();
+        }
+        base.OnDisappearing();
+    }
 }

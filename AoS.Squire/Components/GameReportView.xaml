@@ -6,23 +6,51 @@
         <Label Text="{Binding PlayerScore}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
 
         <VerticalStackLayout>
-            <Label FontSize="12" Text="Soulblight Gravelords"></Label>
-            <Label Text="Player"></Label>
+            <Label FontSize="12" Text="{Binding PlayerFactionName}"></Label>
+            <Label Text="{Binding PlayerName}"></Label>
         </VerticalStackLayout>
 
         <HorizontalStackLayout>
-            <CheckBox HorizontalOptions="Start"></CheckBox>
+            <CheckBox HorizontalOptions="Start" IsChecked="{Binding IsGranStrategyComplete}"></CheckBox>
             <Label VerticalOptions="Center" FontSize="12" Text="Grand Strategy"></Label>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>
             <Label FontSize="14" Text="Battle Tactics: "></Label>
-            <Label FontSize="14" Text="4"></Label>
+            <Label FontSize="14" Text="{Binding NumberOfTactics}"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <Label FontSize="14" Text="Won Priority: "></Label>
-            <Label FontSize="14" Text="2"></Label>
+            <Label FontSize="14" Text="{Binding TookPriority}"></Label>
         </HorizontalStackLayout>
-                
+                <CollectionView ItemsSource="{Binding TacticsRecap}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="8"> 
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <Label Grid.Column="0" FontSize="12" Text="{Binding RoundNumber}">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding IsComplete}" Value="True">
+                                                <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Label Grid.Column="1" Margin="8,0" FontSize="12" Text="{Binding TacticName}" LineBreakMode="WordWrap">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding IsComplete}" Value="True">
+                                                <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                </Grid>
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding IsComplete}" Value="true">
+                                        <Setter Property="Background" Value="{StaticResource Primary}"></Setter>
+                                    </DataTrigger>
+                                </Border.Triggers>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
     </VerticalStackLayout>
 </ContentView>

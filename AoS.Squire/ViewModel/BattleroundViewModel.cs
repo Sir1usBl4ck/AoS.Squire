@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using AoS.Squire.Model;
+﻿using AoS.Squire.Model;
 using AoS.Squire.Store;
 
 namespace AoS.Squire.ViewModel;
@@ -8,32 +7,38 @@ public class BattleroundViewModel : BaseViewModel
 {
     private readonly BattleRound _battleRound;
 
-    public BattleroundViewModel(BattleRound battleRound,GameStore store)
+    public BattleroundViewModel(BattleRound battleRound, GameStore store)
     {
         _battleRound = battleRound;
-        
-        PlayerTurn = new TurnViewModel(battleRound.PlayerTurn,battleRound.RoundNumber,"player",store);
-        PlayerTurn.ScoreChanged += Turn_ScoreChanged;
-        OpponentTurn = new TurnViewModel(battleRound.OpponentTurn,battleRound.RoundNumber,"opponent",store);
-        OpponentTurn.ScoreChanged += Turn_ScoreChanged;
+
+        PlayerTurn = new TurnViewModel(battleRound.PlayerTurn, battleRound.RoundNumber, "player", store);
+        InitializeTurn(_battleRound.PlayerTurn, PlayerTurn);
+        OpponentTurn = new TurnViewModel(battleRound.OpponentTurn, battleRound.RoundNumber, "opponent", store);
+        InitializeTurn(_battleRound.OpponentTurn, OpponentTurn);
 
 
+        Turns = new List<TurnViewModel>
+        {
+            PlayerTurn,
+            OpponentTurn
+        };
     }
 
-    private void Turn_ScoreChanged()
+    private void InitializeTurn(Turn turn, TurnViewModel viewModel)
     {
-        OnScoreChanged();
+        if (turn.SelectedBattleTactic != null)
+        {
+            viewModel.PopulateBattleTacticInfo(turn.SelectedBattleTactic);
+        }
+
     }
 
-    public int BattleRoundNumber=> _battleRound.RoundNumber;
+
+    public int BattleRoundNumber => _battleRound.RoundNumber;
+
+    public List<TurnViewModel> Turns { get; set; }
 
     public TurnViewModel PlayerTurn { get; set; }
     public TurnViewModel OpponentTurn { get; set; }
-    
-    public event Action ScoreChanged;
 
-    protected virtual void OnScoreChanged()
-    {
-        ScoreChanged?.Invoke();
-    }
 }

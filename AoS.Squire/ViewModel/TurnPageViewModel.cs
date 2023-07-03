@@ -1,5 +1,4 @@
-﻿using AoS.Squire.Model;
-using AoS.Squire.Services;
+﻿using AoS.Squire.Services;
 using AoS.Squire.Store;
 using AoS.Squire.View;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -26,11 +25,12 @@ public partial class TurnPageViewModel : BaseViewModel
             {"Turn",turn}
         });
     }
-
-
-
-
+    
     [ObservableProperty]
     private TurnViewModel _turn;
 
+    public void CalculateScore()
+    {
+        _gameStore.CalculateGameScore();
+    }
 }

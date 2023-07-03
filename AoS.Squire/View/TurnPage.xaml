@@ -10,7 +10,7 @@
                 Text="Battle Tactic"
                 TextTransform="Uppercase"
                 FontSize="10"></Label>
-            <Border Padding="16" BackgroundColor="{StaticResource Secondary}">
+            <Border Padding="16" BackgroundColor="{AppThemeBinding Light={StaticResource Secondary},Dark={StaticResource Tertiary}}">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20"></RoundRectangle>
                 </Border.StrokeShape>
@@ -18,8 +18,6 @@
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToTacticsPickerCommand}" CommandParameter="{Binding Turn}"></TapGestureRecognizer>
                     </Grid.GestureRecognizers>
-                
-            
                     <Label Grid.Row="1"
                            FontSize="12"
                            FontAttributes="Bold"
@@ -55,5 +53,11 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Grid ColumnDefinitions="Auto,*,*,Auto">
+            <CheckBox IsChecked="{Binding Turn.HasExtraPoints,Mode=TwoWay}" Grid.Column="0"></CheckBox>
+            <Label Grid.Column="1" FontSize="14" VerticalOptions="Center" Text="Extra"></Label>
+            <Label Grid.Column="2" FontSize="14" VerticalOptions="Center" Text="{Binding Turn.ExtraPoints}"></Label>
+            <Stepper Grid.Column="3" Minimum="0" Maximum="5" Value="{Binding Turn.ExtraPoints}"></Stepper>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

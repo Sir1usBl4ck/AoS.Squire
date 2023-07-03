@@ -19,8 +19,8 @@
 		<ApplicationIdGuid>47c2bc13-1cb5-45d0-ae27-5b62e1e22700</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>0.2</ApplicationDisplayVersion>
+		<ApplicationVersion>2</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -66,10 +66,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
+	
 		<!-- Splash Screen -->
-		<MauiImage Include="Resources\Splash\splash.png" />
+		<MauiSplashScreen Include="Resources\Splash\splash.png" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -79,12 +79,6 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Images\battle.png" />
-	  <None Remove="Resources\Images\graph.png" />
-	  <None Remove="Resources\Images\home_screen.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -98,12 +92,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Store\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiSplashScreen Include="Resources\Splash\splash.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiSplashScreen>
 	</ItemGroup>
 
 	<ItemGroup>

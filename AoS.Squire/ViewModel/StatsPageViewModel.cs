@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using AoS.Squire.Model;
-using AoS.Squire.Services;
+﻿using AoS.Squire.Services;
 using CommunityToolkit.Mvvm.Input;
 
 namespace AoS.Squire.ViewModel;

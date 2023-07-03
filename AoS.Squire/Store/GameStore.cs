@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using AoS.Squire.Model;
+﻿using AoS.Squire.Model;
 using AoS.Squire.Services;
 using AoS.Squire.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -17,7 +16,14 @@ public partial class GameStore : BaseViewModel
 
     public Player Player { get; set; } = new();
     public Player Opponent { get; set; } = new();
+        
+    public void CalculateGameScore()
+    {
+        _game.CalculateScore();
+        GameScoreChanged?.Invoke();
+    }
 
+    public event Action GameScoreChanged;
     
     [ObservableProperty] 
     private Mission _selectedMission;
@@ -94,4 +100,5 @@ public partial class GameStore : BaseViewModel
             }
         }
     }
+    
 }

@@ -1,6 +1,5 @@
 ﻿
 using System.ComponentModel;
-using AoS.Squire.Model;
 using AoS.Squire.Services;
 using AoS.Squire.Store;
 using AoS.Squire.View;
@@ -17,23 +16,26 @@ public partial class GameSetupViewModel : BaseViewModel
     {
         _gameStore = gameStore;
         _gameService = gameService;
-        _gameStore.PropertyChanged += UpdateValues;
+        _gameStore.Player.PropertyChanged += UpdateValues;
+        _gameStore.Opponent.PropertyChanged += UpdateValues;
         
     }
 
     private void UpdateValues(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
     {
-        OnPropertyChanged(nameof(Player1Name));
-        OnPropertyChanged(nameof(Player2Name));
+        OnPropertyChanged(nameof(IsPlayerSelected));
+        OnPropertyChanged(nameof(IsOpponentSelected));
         OnPropertyChanged(nameof(MissionName));
         StartGameCommand.NotifyCanExecuteChanged();
     }
 
-    public string Player1Name => _gameStore.Player.Name;
-    public string Player2Name => _gameStore.Opponent.Name;
     public string MissionName => !string.IsNullOrWhiteSpace(_gameStore?.SelectedMission?.Name) ? _gameStore?.SelectedMission?.Name: "Choose Mission" ;
-    public string Player1Faction => !string.IsNullOrWhiteSpace(_gameStore.Player.Faction?.Name) ? _gameStore.Player.Faction?.Name: "Select Faction" ;
-    public string Player2Faction => !string.IsNullOrWhiteSpace(_gameStore.Opponent.Faction?.Name) ? _gameStore.Opponent.Faction?.Name: "Select Faction" ;
+    public string PlayerFaction => !string.IsNullOrWhiteSpace(_gameStore.Player.Faction?.Name) ? _gameStore.Player.Faction?.Name: "Select Faction" ;
+    public string OpponentFaction => !string.IsNullOrWhiteSpace(_gameStore.Opponent.Faction?.Name) ? _gameStore.Opponent.Faction?.Name: "Select Faction" ;
+
+    public bool IsPlayerSelected => !string.IsNullOrWhiteSpace(_gameStore.Player.Faction?.Name);
+    public bool IsOpponentSelected => !string.IsNullOrWhiteSpace(_gameStore.Opponent.Faction?.Name);
+    public bool IsMissionSelected => !string.IsNullOrWhiteSpace(_gameStore.SelectedMission?.Name);
 
     private bool CanStartGame()
     {
@@ -46,6 +48,10 @@ public partial class GameSetupViewModel : BaseViewModel
         IsBusy = true;
         await _gameService.StartGame();
         await Shell.Current.GoToAsync(nameof(GamePage));
+        await Shell.Current.GoToAsync($"{nameof(GamePage)}", true, new Dictionary<string, object>
+        {
+            { "CurrentRound", new BattleroundViewModel(_gameStore.Game.BattleRounds[0], _gameStore) }
+        });
         IsBusy = false;
 
     }

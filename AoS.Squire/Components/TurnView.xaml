@@ -7,155 +7,101 @@
         <converters:PlayerToColorConverter x:Key="PlayerToColorConverter"></converters:PlayerToColorConverter>
     </ContentView.Resources>
     <Border StrokeThickness="2"
-            Padding="12"
+            Padding="16"
             Stroke="{Binding PlayerTypeString , Converter={StaticResource PlayerToColorConverter}}">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="20"></RoundRectangle>
         </Border.StrokeShape>
 
-        <VerticalStackLayout>
-            <Grid Grid.Row="0">
+        <Grid RowDefinitions="*,Auto">
+              <VerticalStackLayout Spacing="8" Grid.Row="0">
+            <Grid>
                 <VerticalStackLayout>
                     <Label Text="{Binding PlayerFaction}"
                            FontSize="10"></Label>
                     <Label Text="{Binding PlayerName}"></Label>
                 </VerticalStackLayout>
-                <HorizontalStackLayout HorizontalOptions="End">
-                    <Label VerticalOptions="Center"
-                           Text="Going First"
-                           FontSize="10"></Label>
-                    <RadioButton GroupName="{Binding RoundNumber}"
-                                 VerticalOptions="Center"
-                                 IsChecked="{Binding GoingFirst}"></RadioButton>
-                </HorizontalStackLayout>
+               
+                <Button HorizontalOptions="End" Text="{Binding Score, StringFormat='Score: {0}'}" Margin="0,0,0,24" Command="{Binding GoToScoreCommand}"
+                        CommandParameter="{Binding .}" ></Button>
             </Grid>
-            <Border Grid.Row="1"
-                    Padding="6"
+            <HorizontalStackLayout HorizontalOptions="Start">
+                <Label VerticalOptions="Center"
+                       Text="Going First"
+                       FontSize="10"></Label>
+                <RadioButton GroupName="{Binding RoundNumber}"
+                             VerticalOptions="Center"
+                             IsChecked="{Binding GoingFirst}"></RadioButton>
+            </HorizontalStackLayout>
+            <Border Padding="6"
                     Margin="0,10">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="6"></RoundRectangle>
                 </Border.StrokeShape>
                 <Grid>
                     <VerticalStackLayout>
-                        <Label Text="Command Points" TextTransform="Uppercase" FontSize="10"></Label>
+                        <Label Text="Command Points"
+                               TextTransform="Uppercase"
+                               FontSize="10"></Label>
                         <Label VerticalOptions="Center"
                                FontSize="24"
                                Margin="10,0,0,0"
                                FontAttributes="Bold"
-                               Text="{Binding Source={x:Reference stepper}, Path=Value}"/>
+                               Text="{Binding Source={x:Reference stepper}, Path=Value}" />
                     </VerticalStackLayout>
-                   
+
                     <Stepper x:Name="stepper"
                              HorizontalOptions="End"
                              Minimum="0"></Stepper>
                 </Grid>
             </Border>
-            <Grid Grid.Row="2">
-                <VerticalStackLayout >
-                    <Label Text="BATTLE TACTIC"
-                           FontSize="10"></Label>
-                    <Button Style="{StaticResource LightButton}" Text="{Binding SelectedBattleTacticName}" Command="{Binding GoToTacticsPicker}"
-                            CommandParameter="{Binding .}"></Button>
-                </VerticalStackLayout>
-            </Grid>
+            
             <Border Grid.Row="3"
                     BackgroundColor="Transparent"
                     Padding="6"
                     Margin="0,10"
                     IsVisible="{Binding HasExtraTracker}">
-                <Grid >
+                <Grid>
                     <VerticalStackLayout>
-                        <Label Text="{Binding ExtraTrackerName}" TextTransform="Uppercase" FontSize="10"></Label>
+                        <Label Text="{Binding ExtraTrackerName}"
+                               TextTransform="Uppercase"
+                               FontSize="10"></Label>
                         <Label VerticalOptions="Center"
                                FontSize="18"
                                Margin="10,0,0,0"
                                FontAttributes="Bold"
-                               Text="{Binding Source={x:Reference extraStepper}, Path=Value}"/>
+                               Text="{Binding Source={x:Reference extraStepper}, Path=Value}" />
                     </VerticalStackLayout>
-                   
+
                     <Stepper x:Name="extraStepper"
                              HorizontalOptions="End"
                              Value="{Binding ExtraTrackerValue}"
                              Minimum="0"></Stepper>
                 </Grid>
             </Border>
-            <Grid Grid.Row="4">
-                <Border HorizontalOptions="Start" Padding="5">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="6"></RoundRectangle>
-                    </Border.StrokeShape>
-                    <VerticalStackLayout >
-                        <Label FontSize="10" Text="Turn Score" ></Label>
-                        <Label FontSize="24" HorizontalOptions="Center" Text="{Binding Score}"></Label>
-                    </VerticalStackLayout>
-                </Border>
-                <Button Text="Score"
-                        HorizontalOptions="End"
-                        Command="{Binding GoToScoreCommand}"
-                        CommandParameter="{Binding .}" />
-            </Grid>
-
-        </VerticalStackLayout>
-
-        <!--<VerticalStackLayout Spacing="10">
-            <VerticalStackLayout>
-                
-                <VerticalStackLayout HorizontalOptions="End">
-                    <Label Text="{Binding PlayerFaction}"
-                           FontSize="10"></Label>
-                    <Label Text="{Binding PlayerName}"></Label>
-                </VerticalStackLayout>
-                <Label Text="Command Points"
-                       Margin="0,5,0,0"></Label>
-                <Border BackgroundColor="Transparent"
-                        Padding="10">
-                    <Grid>
-                        <Label VerticalOptions="Center"
-                               FontSize="24"
-                               Margin="10,0,0,0"
-                               FontAttributes="Bold"
-                               Text="{Binding Source={x:Reference stepper}, Path=Value}"></Label>
-                        <Stepper x:Name="stepper"
-                                 HorizontalOptions="End"
-                                 Minimum="0"></Stepper>
-                    </Grid>
-                </Border>
-            </VerticalStackLayout>
             <Grid>
-                <VerticalStackLayout IsVisible="{Binding IsTacticSelected}">
+                <VerticalStackLayout>
+                   
                     <Label Text="BATTLE TACTIC"
                            FontSize="10"></Label>
-                    <Label Text="{Binding SelectedBattleTacticName}"></Label>
-                </VerticalStackLayout>
-                <Button Text="{Binding TurnButtonText}"
-                        HorizontalOptions="End"
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToTurnCommand}"
-                        CommandParameter="{Binding .}" />
-            </Grid>
-            <Grid>
-                <Border HorizontalOptions="Start"
-                        BackgroundColor="Transparent"
-                        Padding="10">
-                    <VerticalStackLayout>
-                        <Label Text="SCORE"
-                               FontSize="8"></Label>
-                        <Label Text="{Binding Score}"
-                               FontSize="22"
-                               FontAttributes="Bold"
-                               HorizontalOptions="Center"></Label>
-                    </VerticalStackLayout>
-                </Border>
-                <HorizontalStackLayout HorizontalOptions="End">
-                    <Label VerticalOptions="Center"
-                           Text="Going First"
-                           FontSize="10"></Label>
-                    <RadioButton GroupName="{Binding RoundNumber}"
-                                 VerticalOptions="Center"
-                                 IsChecked="{Binding GoingFirst}"></RadioButton>
-                </HorizontalStackLayout>
-            </Grid>
+                        <VerticalStackLayout>
+                            <Button Style="{StaticResource LightButton}"
+                                    Text="{Binding SelectedBattleTacticName}"
+                                    Command="{Binding GoToTacticsPickerCommand}"
+                                    CommandParameter="{Binding .}"></Button>
+                            <Label Text="{Binding SelectedBattleTacticDescription}" FontSize="12" Margin="8"></Label>
 
-        </VerticalStackLayout>-->
+                        </VerticalStackLayout>
+                   
+                </VerticalStackLayout>
+            </Grid>
+           
+
+
+        </VerticalStackLayout>
+          
+        </Grid>
+      
     </Border>
 
 </ContentView>

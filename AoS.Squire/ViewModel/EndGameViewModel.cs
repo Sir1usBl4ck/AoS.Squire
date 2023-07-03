@@ -7,13 +7,15 @@ namespace AoS.Squire.ViewModel;
 
 public class TacticRecap
 {
-    public TacticRecap(int roundNumber, string tacticName)
+    public TacticRecap(int roundNumber, string tacticName, bool isComplete)
     {
         RoundNumber = roundNumber;
         TacticName = tacticName;
+        IsComplete = isComplete;
     }
 
     public int RoundNumber { get; set; }
+    public bool IsComplete { get; set; }
     public string TacticName { get; set; }
 }
 
@@ -21,27 +23,55 @@ public partial class GameRecapViewModel : BaseViewModel
 {
     private readonly Player _player;
     private readonly Game _game;
-    private readonly List<Turn> _turns;
 
     public GameRecapViewModel(Player player, Game game, List<Turn> turns)
     {
         _player = player;
         _game = game;
-        _turns = turns;
+        TacticsRecap = GetTacticsRecap(turns);
+        TookPriority = CalculateGoingFirstTurns(turns);
+
     }
 
     public int PlayerScore => _game.PlayerScore;
+    public string PlayerName => _player.Name;
     public string PlayerFactionName => _player.Faction.Name;
-    public int TookPriority => _turns.Select(t => t.GoingFirst).Count();
+    public int TookPriority { get; set; }
 
-    public List<TacticRecap> TacticsRecap =>
-        _turns.Select(t => new TacticRecap(t.RoundNumber, t.SelectedBattleTactic.Name)).ToList();
+    public List<TacticRecap> TacticsRecap { get; set; }
+
+    private int CalculateGoingFirstTurns(List<Turn> turns)
+    {
+        var result = turns.Select(t => t.GoingFirst).Count();
+        return result;
+    }
+
+    private bool HasCompletedTactic(Turn turn)
+    {
+        return turn.VictoryPoints.Where(v => v.IsScored)
+            .FirstOrDefault(v => v.Description.ToLower().Contains("tactic".ToLower())) != null;
+    }
+
+    private List<TacticRecap> GetTacticsRecap(List<Turn> turns )
+    {
+        var result = turns
+            .Select(t =>
+                new TacticRecap(t.RoundNumber,
+                    (t.SelectedBattleTactic!=null ? t.SelectedBattleTactic.Name : "-"),
+                    HasCompletedTactic(t) ))
+            .ToList();
+        var orderedResult = result.OrderBy(t => t.RoundNumber);
+        return orderedResult.ToList();
+    }
+
+    public int NumberOfTactics => TacticsRecap.Count(t => t.TacticName!="-");
     public bool IsGranStrategyComplete
     {
         get => _player.IsGranStrategyCompleted;
         set
         {
             _player.IsGranStrategyCompleted = value; 
+            _game.CalculateScore();
             OnPropertyChanged(nameof(PlayerScore));
         }
     }

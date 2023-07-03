@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using AoS.Squire.ViewModel;
 
 namespace AoS.Squire.View;

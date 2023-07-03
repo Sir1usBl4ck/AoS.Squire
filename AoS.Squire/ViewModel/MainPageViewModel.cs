@@ -18,6 +18,8 @@ public partial class MainPageViewModel : BaseViewModel
         _gameService = gameService;
     }
 
+    public string Version => AppInfo.Current.VersionString;
+
     [RelayCommand]
     private async Task NewGameAsync()
     {

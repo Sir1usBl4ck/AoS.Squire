@@ -4,15 +4,66 @@
              xmlns:model="clr-namespace:AoS.Squire.Model"
              xmlns:components="clr-namespace:AoS.Squire.Components"
              x:Class="AoS.Squire.View.GamePage"
+             Shell.PresentationMode="Animated"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False"
              Title="Game">
-    <Shell.BackButtonBehavior>
-        <BackButtonBehavior Command="{Binding EndGameCommand}"></BackButtonBehavior>
-    </Shell.BackButtonBehavior>
-    <Grid Padding="8"
-          RowDefinitions="Auto,*,Auto,Auto">
-        <Grid Margin="6">
+    <Grid Padding="16"
+          RowDefinitions="Auto,Auto,*,Auto,Auto">
+        <Grid Grid.Row="1"
+              HorizontalOptions="Fill"
+              Margin="0,8">
+            <Button Text="Previous"
+                    WidthRequest="88"
+                    HeightRequest="44"
+                    HorizontalOptions="Start"
+                    Command="{Binding PreviousRoundCommand}"></Button>
+            <ActivityIndicator HorizontalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
+            <VerticalStackLayout IsVisible="{Binding IsNotBusy}">
+                <Label FontSize="18"
+                       HorizontalOptions="Center"
+                       Text="{Binding CurrentRound.BattleRoundNumber, StringFormat='Round {0}'}"
+                       FontAttributes="Bold"></Label>
+                <Label HorizontalOptions="Center"
+                       FontSize="24">
+                    <Label.Text>
+                        <MultiBinding StringFormat="{}{0} - {1}">
+                            <Binding Path="PlayerScore"></Binding>
+                            <Binding Path="OpponentScore"></Binding>
+
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+            </VerticalStackLayout>
+
+            <Button Text="Next"
+                    WidthRequest="88"
+                    HorizontalOptions="End"
+                    HeightRequest="44"
+                    Command="{Binding NextRoundCommand}"></Button>
+
+        </Grid>
+        <CarouselView Grid.Row="2"
+                      x:Name="carousel"
+                      IndicatorView="indicatorView"
+                      Loop="False"
+                      ItemsSource="{Binding CurrentRound.Turns}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <components:TurnView BindingContext="{Binding .}" />
+                </DataTemplate>
+
+            </CarouselView.ItemTemplate>
+
+        </CarouselView>
+        <IndicatorView Grid.Row="3"
+                       x:Name="indicatorView"
+                       Margin="0,0,0,10"
+                       IndicatorColor="LightGray"
+                       SelectedIndicatorColor="DarkGray"
+                       HorizontalOptions="Center">
+        </IndicatorView>
+        <!--<Grid Margin="6">
             <Label FontSize="24" Text="{Binding CurrentRound.BattleRoundNumber, StringFormat='Round {0}'}" FontAttributes="Bold"></Label>
             <Label HorizontalOptions="End" FontSize="24" FontAttributes="Bold">
                 <Label.Text>
@@ -52,8 +103,8 @@
                        Margin="0,0,0,10"
                        IndicatorColor="LightGray"
                        SelectedIndicatorColor="DarkGray"
-                       HorizontalOptions="Center" />
-        <Button Grid.Row="3"
+                       HorizontalOptions="Center" />-->
+        <Button Grid.Row="4"
                 Text="End Game"
                 Command="{Binding EndGameCommand}"></Button>
     </Grid>

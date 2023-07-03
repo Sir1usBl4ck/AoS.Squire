@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using AoS.Squire.Model;
 using AoS.Squire.Store;
 using AoS.Squire.View;
@@ -7,47 +6,25 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AoS.Squire.ViewModel;
 
-public class VictoryPointViewModel : BaseViewModel
-{
-    private readonly VictoryPoint _victoryPoint;
-
-    public VictoryPointViewModel(VictoryPoint victoryPoint)
-    {
-        _victoryPoint = victoryPoint;
-    }
-
-    public event Action ScoreChanged;
-    public string Description => _victoryPoint.Description;
-    public int Points => _victoryPoint.Points;
-    public bool IsScored
-    {
-        get => _victoryPoint.IsScored;
-        set
-        {
-            _victoryPoint.IsScored = value;
-            OnPropertyChanged();
-            ScoreChanged?.Invoke();
-        }
-    }
-}
 public partial class TurnViewModel : BaseViewModel
 {
     private readonly GameStore _store;
     public Turn Turn { get; }
-    public event Action ScoreChanged;
 
     public TurnViewModel(Turn turn,int roundNumber, string playerTypeString,GameStore store)
     {
         _store = store;
         _store.PropertyChanged += Store_PropertyChanged;
+        _store.GameScoreChanged += Game_ScoreChanged;
         Turn = turn;
         RoundNumber = roundNumber;
-        VictoryPoints = turn.VictoryPoints.Select(v => new VictoryPointViewModel(v)).ToList();
-        foreach (var pointViewModel in VictoryPoints)
-        {
-            pointViewModel.ScoreChanged += VictoryPoint_ScoreChanged;
-        }
-        PlayerTypeString = playerTypeString;
+        VictoryPoints = turn.VictoryPoints.Select(v => new VictoryPointViewModel(v,store)).ToList();
+      PlayerTypeString = playerTypeString;
+    }
+
+    private void Game_ScoreChanged()
+    {
+        OnPropertyChanged(nameof(Score));
     }
 
     [RelayCommand]
@@ -83,22 +60,34 @@ public partial class TurnViewModel : BaseViewModel
             OnPropertyChanged(nameof(ExtraTrackerValue));
         }
     }
-
-    private void VictoryPoint_ScoreChanged()
-    {
-       CalculateScore();
-       ScoreChanged?.Invoke();
-    }
-
+    
     public bool HasExtraTracker => Turn.Player.Faction.HasExtraTracker;
     public string ExtraTrackerName => Turn.Player.Faction.ExtraTrackerName;
-
+    
     public int ExtraTrackerValue
     {
         get => _store.ExtraTrackerValue;
         set => _store.ExtraTrackerValue = value;
     }
 
+    public int ExtraPoints
+    {
+        get => Turn.ExtraPoints;
+        set
+        {
+            Turn.ExtraPoints = value; 
+            OnPropertyChanged();
+        }
+    }
+    public bool HasExtraPoints
+    {
+        get => Turn.HasExtraPoints;
+        set
+        {
+            Turn.HasExtraPoints = value; 
+            OnPropertyChanged();
+        }
+    }
 
     public bool IsTacticSelected { get; set; }
     public string PlayerTypeString { get; set; }
@@ -109,7 +98,11 @@ public partial class TurnViewModel : BaseViewModel
     public bool GoingFirst
     {
         get => Turn.GoingFirst;
-        set => Turn.GoingFirst = value;
+        set
+        {
+            Turn.GoingFirst = value; 
+            OnPropertyChanged();
+        }
     }
 
     public string SelectedBattleTacticName { get; set; } = "No battle tactic selected.";
@@ -122,17 +115,12 @@ public partial class TurnViewModel : BaseViewModel
     public List<VictoryPointViewModel> VictoryPoints { get; set; }
 
 
-    public void CalculateScore()
-    {
-        OnPropertyChanged(nameof(Score));
-    }
-
     public void PopulateBattleTacticInfo(BattleTactic tactic)
     {
        SelectedBattleTacticDescription = tactic.Description;
        SelectedBattleTacticName = tactic.Name;
        IsTacticSelected = true;
-       CalculateScore();
+       OnPropertyChanged(nameof(Score));
        OnPropertyChanged(nameof(SelectedBattleTacticDescription));
        OnPropertyChanged(nameof(SelectedBattleTacticName));
        OnPropertyChanged(nameof(IsTacticSelected));
