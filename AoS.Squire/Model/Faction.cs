@@ -8,4 +8,5 @@ public class Faction
     public List<BattleTactic> BattleTactics { get; set; }
     public bool HasExtraTracker { get; set; }
     public string ExtraTrackerName { get; set; }
+    public bool IsFavorite { get; set; }
 }

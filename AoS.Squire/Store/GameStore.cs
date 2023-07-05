@@ -8,10 +8,12 @@ namespace AoS.Squire.Store;
 public partial class GameStore : BaseViewModel
 {
     private readonly RemoteDataService _remoteDataService;
+    private readonly LocalRepository _repository;
 
-    public GameStore(RemoteDataService remoteDataService)
+    public GameStore(RemoteDataService remoteDataService, LocalRepository repository)
     {
         _remoteDataService = remoteDataService;
+        _repository = repository;
     }
 
     public Player Player { get; set; } = new();
@@ -79,11 +81,16 @@ public partial class GameStore : BaseViewModel
         if (!Factions.Any())
         {
             var factions = await _remoteDataService.GetFactions();
-
+            var favoriteIds = await _repository.GetFavoriteFactionIds();
             Factions.Clear();
             foreach (var faction in factions)
             {
                 Factions.Add(faction);
+                if (favoriteIds.Any(f=>f == faction.Id))
+                {
+                    faction.IsFavorite = true; 
+                }
+                
             }
 
         }
@@ -100,5 +107,14 @@ public partial class GameStore : BaseViewModel
             }
         }
     }
-    
+
+    public async Task FilterFavoritesOnly()
+    {
+        FilteredFactions.Clear();
+        var favorites = await _repository.GetFavoriteFactionIds();
+        foreach (var faction in Factions.Where(faction => favorites.Contains(faction.Id)))
+        {
+            FilteredFactions.Add(faction);
+        }
+    }
 }

@@ -33,7 +33,7 @@ public partial class GameRecapViewModel : BaseViewModel
 
     }
 
-    public int PlayerScore => _game.PlayerScore;
+    public int PlayerScore => _player.IsOpponent? _game.OpponentScore : _game.PlayerScore;
     public string PlayerName => _player.Name;
     public string PlayerFactionName => _player.Faction.Name;
     public int TookPriority { get; set; }
@@ -42,7 +42,7 @@ public partial class GameRecapViewModel : BaseViewModel
 
     private int CalculateGoingFirstTurns(List<Turn> turns)
     {
-        var result = turns.Select(t => t.GoingFirst).Count();
+        var result = turns.Count(t => t.GoingFirst);
         return result;
     }
 
@@ -64,7 +64,7 @@ public partial class GameRecapViewModel : BaseViewModel
         return orderedResult.ToList();
     }
 
-    public int NumberOfTactics => TacticsRecap.Count(t => t.TacticName!="-");
+    public int NumberOfTactics => TacticsRecap.Count(t => (t.TacticName!="-" && t.IsComplete));
     public bool IsGranStrategyComplete
     {
         get => _player.IsGranStrategyCompleted;

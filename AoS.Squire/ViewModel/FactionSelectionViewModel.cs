@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using AoS.Squire.Model;
+using AoS.Squire.Services;
 using AoS.Squire.Store;
 using AoS.Squire.View;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -7,31 +8,83 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AoS.Squire.ViewModel;
 
+public partial class FactionViewModel : BaseViewModel
+{
+    private readonly Faction _faction;
+    private readonly LocalRepository _repository;
+
+    public FactionViewModel(Faction faction, Player player, LocalRepository repository)
+    {
+        Player = player;
+        _faction = faction;
+        _repository = repository;
+    }
+    public Player Player { get; set; }
+    public string FactionName => _faction.Name;
+
+    public bool IsFavorite
+    {
+        get => _faction.IsFavorite;
+        set => _faction.IsFavorite = value;
+    }
+
+    public bool IsNotFavorite => !IsFavorite;
+    [RelayCommand]
+    private async Task SelectFactionAsync()
+    {
+        Player.Faction = _faction;
+        await Shell.Current.GoToAsync(nameof(GameSetupPage));
+
+    }
+
+    [RelayCommand]
+    private async Task AddFavoriteAsync()
+    {
+       
+            await _repository.AddFactionToFavorites(_faction.Id);
+            IsFavorite = true;
+        
+            OnPropertyChanged(nameof(IsFavorite));
+            OnPropertyChanged(nameof(IsNotFavorite));
+
+    }
+
+    [RelayCommand]
+    private async Task RemoveFavoriteAsync()
+    {
+        await _repository.RemoveFromFavorites(_faction.Id);
+
+        IsFavorite = false;
+
+        OnPropertyChanged(nameof(IsFavorite));
+        OnPropertyChanged(nameof(IsNotFavorite));
+    }
+}
+
 [QueryProperty("Player", "Player")]
 public partial class FactionSelectionViewModel : BaseViewModel
 {
     private readonly GameStore _gameStore;
-
-    [ObservableProperty]
+    private readonly LocalRepository _repository;
     private Player _player;
 
-    public FactionSelectionViewModel(GameStore gameStore)
+    public FactionSelectionViewModel(GameStore gameStore, LocalRepository repository)
     {
         _gameStore = gameStore;
+        _repository = repository;
         Title = "Select A Faction";
-        LoadFactions();
     }
 
-
-    [RelayCommand]
-    private async Task SelectionChanged(Faction faction)
+    public Player Player
     {
-        if (faction != null)
+        get => _player;
+        set
         {
-            await Shell.Current.GoToAsync(nameof(GameSetupPage));
-
+            _player = value;
+            LoadFactions();
         }
     }
+
     private void LoadFactions()
     {
         if (Factions.Count != 0)
@@ -40,9 +93,9 @@ public partial class FactionSelectionViewModel : BaseViewModel
         }
         foreach (var faction in _gameStore.FilteredFactions)
         {
-            Factions.Add(faction);
+            Factions.Add(new FactionViewModel(faction, Player, _repository));
         }
     }
 
-    public ObservableCollection<Faction> Factions { get; set; } = new();
+    public ObservableCollection<FactionViewModel> Factions { get; set; } = new();
 }

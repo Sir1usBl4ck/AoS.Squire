@@ -6,8 +6,16 @@
     <VerticalStackLayout Spacing="12"
                          Margin="0,24,0,0"
                          Padding="24">
-      <Button HorizontalOptions="Fill"
-              Style="{StaticResource LightButton}"
+        <Button HorizontalOptions="Fill"
+                Style="{StaticResource LightButton}"
+                Text="My Armies"
+                Command="{Binding GoToMyArmiesCommand}">
+            <Button.ImageSource>
+                <FontImageSource Size="24" FontFamily="Icons" Glyph="{StaticResource StarOutline}" Color="{StaticResource Primary}"></FontImageSource>
+            </Button.ImageSource>
+        </Button>
+        <Button HorizontalOptions="Fill"
+                Style="{StaticResource LightButton}"
                 Text="Order"
                 Command="{Binding SelectAllianceCommand}"
                 CommandParameter="order"></Button>
@@ -26,5 +34,6 @@
                 Text="Destruction"
                 Command="{Binding SelectAllianceCommand}"
                 CommandParameter="destruction"></Button>
+        
     </VerticalStackLayout>
 </ContentPage>

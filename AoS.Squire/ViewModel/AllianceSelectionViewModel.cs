@@ -24,6 +24,19 @@ public partial class AllianceSelectionViewModel : BaseViewModel
             return;
         }
         _gameStore.FilterFactions(allianceName);
+        await GoToFactionSelectionPage();
+        ;
+    }
+
+    [RelayCommand]
+    private async Task GoToMyArmiesAsync()
+    {
+        await _gameStore.FilterFavoritesOnly();
+        await GoToFactionSelectionPage();
+    }
+
+    private async Task GoToFactionSelectionPage()
+    {
         await Shell.Current.GoToAsync($"{nameof(FactionSelectionPage)}", true, new Dictionary<string, object>
         {
             { "Player", Player }

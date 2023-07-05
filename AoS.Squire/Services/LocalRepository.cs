@@ -49,6 +49,7 @@ public class LocalRepository
             _database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             await _database.CreateTableAsync<GameReport>();
             await _database.CreateTableAsync<BattleRoundReport>();
+            await _database.CreateTableAsync<FavoriteFaction>();
         }
         catch (Exception e)
         {
@@ -95,4 +96,25 @@ public class LocalRepository
     }
 
 
+    public async Task<List<int>> GetFavoriteFactionIds()
+    {
+        await Init();
+        var favorites = await _database.Table<FavoriteFaction>().ToListAsync();
+        return favorites.Select(f => f.FactionId).ToList();
+    }
+
+    public async Task<int> AddFactionToFavorites(int factionId)
+    {
+        return await _database.InsertAsync(new FavoriteFaction { FactionId = factionId });
+
+    }
+
+    public async Task RemoveFromFavorites(int factionId)
+    {
+        await Init();
+        var faction = await _database.Table<FavoriteFaction>().Where(f => f.FactionId == factionId).FirstOrDefaultAsync();
+        if (faction == null)
+            throw new Exception($"Cannot delete. Faction not found for id {factionId}");
+        await _database.DeleteAsync(faction);
+    }
 }

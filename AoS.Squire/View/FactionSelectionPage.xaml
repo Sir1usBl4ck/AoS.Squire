@@ -1,25 +1,75 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:AoS.Squire.Converters"
              x:Class="AoS.Squire.View.FactionSelectionPage"
              Title="{Binding Title}">
-    <Grid Padding="24" >
-       
-        <CollectionView x:Name="factions"
+    <Grid Padding="24"
+          RowDefinitions="Auto,*">
+
+        <Label Text="Swipe to add or remove favorites."
+               Margin="0,0,0,24"
+               Opacity="0.4"
+               FontSize="12"></Label>
+        <CollectionView Grid.Row="1"
+                        x:Name="factions"
                         MaximumHeightRequest="400"
                         VerticalOptions="Fill"
-                        ItemsSource="{Binding Factions}"
-                        SelectionMode="Single"
-                        SelectedItem="{Binding Player.Faction}"
-                        SelectionChangedCommand="{Binding SelectionChangedCommand}"
-                        SelectionChangedCommandParameter="{Binding Player.Faction}">
-         
+                        ItemsSource="{Binding Factions}">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Padding="10"
-                           Text="{Binding Name}"></Label>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Add"
+                                           IsVisible="{Binding IsNotFavorite}"
+                                           Command="{Binding AddFavoriteCommand}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource Color="{StaticResource Yellow100Accent}"
+                                                         FontFamily="Icons"
+                                                         Size="32"
+                                                         Glyph="{StaticResource StarOutline}">
+                                        </FontImageSource>
+
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+                                <SwipeItem Text="Remove"
+                                           IsVisible="{Binding IsFavorite}"
+                                           Command="{Binding RemoveFavoriteCommand}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource Color="{StaticResource Yellow100Accent}"
+                                                         FontFamily="Icons"
+                                                         Size="32"
+                                                         Glyph="{StaticResource Star}">
+                                        </FontImageSource>
+
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+                            </SwipeItems>
+                           
+                        </SwipeView.RightItems>
+                        <Grid Padding="10"
+                              ColumnDefinitions="Auto,*">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectFactionCommand}"></TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="1"
+                                   Text="{Binding FactionName}"
+                                   VerticalOptions="Center"></Label>
+                            <Label Grid.Column="0"
+                                   Margin="0,0,8,0"
+                                   IsVisible="{Binding IsFavorite}"
+                                   TextColor="{StaticResource Yellow100Accent}"
+                                   FontFamily="Icons"
+                                   Text="{StaticResource Star}"></Label>
+
+                        </Grid>
+                    </SwipeView>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </Grid>
 </ContentPage>
