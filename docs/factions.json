@@ -1050,6 +1050,24 @@
   "name": "Destroyer of Empires",
   "description": " You can pick this battle tactic only if a friendly KRAGNOS is on the battlefield. Pick 1 faction terrain feature on the battlefield that was set up by your opponent and that has not been demolished. You complete this tactic if that faction terrain feature is demolished this turn."
  },
+  {
+  "factionId": 23,
+  "factionName": "Orruk Warclans",
+  "allianceName": "Destruction",
+  "hasExtraTracker": true,
+  "extraTrackerName": "Waaagh",
+  "name": "Sneak Up",
+  "description": " You complete this tactic if, at the end of the turn, every friendly KRULEBOYZ unit is within 3'' of any terrain features and is more than 3'' from all enemy units."
+ },
+  {
+  "factionId": 23,
+  "factionName": "Orruk Warclans",
+  "allianceName": "Destruction",
+  "hasExtraTracker": true,
+  "extraTrackerName": "Waaagh",
+  "name": "Dat’s Our Turf Now!:",
+  "description": " You complete this tactic if, at the end of the turn, 2 or more friendly IRONJAWZ units are within 3'' of the centre of the battlefield."
+ },
  {
   "factionId": 24,
   "factionName": "Sons of Behemat",
