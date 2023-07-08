@@ -1,4 +1,5 @@
-﻿using AoS.Squire.Services;
+﻿using AoS.Squire.Model;
+using AoS.Squire.Services;
 using CommunityToolkit.Mvvm.Input;
 
 namespace AoS.Squire.ViewModel;
@@ -6,19 +7,21 @@ namespace AoS.Squire.ViewModel;
 public partial class StatsPageViewModel : BaseViewModel
 {
     private readonly ReportService _reportService;
+    private readonly GlobalStats _globalStats;
 
     public StatsPageViewModel(ReportService reportService)
     {
         _reportService = reportService;
+        _globalStats = reportService.GlobalStats;
     }
 
-    public int TotalNumberOfGames => _reportService.TotalNumberOfGames;
-    public decimal Wins => _reportService.Wins;
-    public int Draws => _reportService.Draws;
-    public int Losses => _reportService.Losses;
-    public decimal WinRate => _reportService.WinRate;
-    public string MostWinsAgainstFactionName => _reportService.MostWinsAgainstFactionName;
-    public string MostLossesAgainstFactionName => _reportService.MostLossesAgainstFactionName;
+    public int TotalNumberOfGames => _globalStats.TotalNumberOfGames;
+    public decimal Wins => _globalStats.Wins;
+    public int Draws => _globalStats.Draws;
+    public int Losses => _globalStats.Losses;
+    public decimal WinRate => _globalStats.WinRate;
+    public string MostWinsAgainstFactionName => _globalStats.MostWinsAgainstFactionName;
+    public string MostLossesAgainstFactionName => _globalStats.MostLossesAgainstFactionName;
 
 
     [RelayCommand]

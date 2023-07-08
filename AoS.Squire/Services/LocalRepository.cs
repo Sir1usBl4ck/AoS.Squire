@@ -3,7 +3,14 @@ using SQLite;
 
 namespace AoS.Squire.Services;
 
-public class LocalRepository
+public interface ILocalReportsRepository
+{
+    Task<List<GameReport>> GetGamesAsync();
+    Task<List<BattleRoundReport>> GetRoundsAsync();
+    Task<bool> DeleteAllAsync();
+}
+
+public class LocalRepository : ILocalReportsRepository
 {
     private SQLiteAsyncConnection _database;
 

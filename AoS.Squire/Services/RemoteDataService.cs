@@ -4,7 +4,13 @@ using AoS.Squire.Model;
 
 namespace AoS.Squire.Services;
 
-public class RemoteDataService
+public interface IRemoteDataService
+{
+    Task<List<Faction>> GetFactions();
+    Task<Ghb> GetGhb();
+}
+
+public class RemoteDataService : IRemoteDataService
 {
     private HttpClient httpClient;
 

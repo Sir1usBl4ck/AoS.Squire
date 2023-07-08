@@ -4,10 +4,10 @@ namespace AoS.Squire.Services;
 
 public class ReportService
 {
-    private readonly LocalRepository _repository;
-    private readonly RemoteDataService _remoteDataService;
+    private readonly ILocalReportsRepository _repository;
+    private readonly IRemoteDataService _remoteDataService;
 
-    public ReportService(LocalRepository repository, RemoteDataService remoteDataService)
+    public ReportService(ILocalReportsRepository repository, IRemoteDataService remoteDataService)
     {
         _repository = repository;
         _remoteDataService = remoteDataService;
@@ -16,27 +16,38 @@ public class ReportService
     public List<GameReport> GameReports { get; set; } = new();
     public List<BattleRoundReport> RoundReports { get; set; } = new();
     public List<Faction> Factions { get; set; } = new();
+    public GlobalStats GlobalStats { get; set; }
 
-    public int TotalNumberOfGames => GameReports.Count;
-    public decimal Wins => GameReports.Count(r => r.PlayerScore > r.OpponentScore);
-    public int Losses => GameReports.Count(r => r.PlayerScore < r.OpponentScore);
-    public int Draws => GameReports.Count(r => r.PlayerScore == r.OpponentScore);
-
-    public int WinRate => GetWinRate();
-
-    private int GetWinRate()
+    private GlobalStats CreateGlobalStats()
     {
-        if (TotalNumberOfGames==0)
+        if (GameReports == null || !GameReports.Any())
+        {
+            throw new Exception(" Error creating Global Stats.  GameReports can't be empty");
+        }
+        var stats = new GlobalStats();
+        stats.WinRate = GameReports.Count(r => r.PlayerScore > r.OpponentScore);
+        stats.Losses = GameReports.Count(r => r.PlayerScore < r.OpponentScore);
+        stats.Draws = GameReports.Count(r => r.PlayerScore == r.OpponentScore);
+        stats.TotalNumberOfGames = GameReports.Count;
+        stats.WinRate = GetWinRate(stats);
+        stats.MostWinsAgainstFactionName = GetMostWinsAgainstFactionName();
+        stats.MostLossesAgainstFactionName = GetMostLossesAgainstFactionName();
+        return stats;
+
+    }
+
+    private int GetWinRate(GlobalStats stats)
+    {
+        if (stats.TotalNumberOfGames == 0)
         {
             return 0;
         }
-        var result = (Wins / TotalNumberOfGames) * 100;
+        var result = (stats.Wins / stats.TotalNumberOfGames) * 100;
         return decimal.ToInt32(result);
 
     }
 
-    public string MostWinsAgainstFactionName => GetMostWinsAgainstFactionName();
-    public string MostLossesAgainstFactionName => GetMostLossesAgainstFactionName();
+
 
     private string GetMostLossesAgainstFactionName()
     {
@@ -47,7 +58,7 @@ public class ReportService
 
         var losses = GameReports.Where(r => r.OpponentScore > r.PlayerScore)
             .ToDictionary(t => t.Id, t => t.OpponentFactionId);
-        if (losses.Count==0)
+        if (losses.Count == 0)
         {
             return "Not enough Data.";
         }
@@ -69,7 +80,7 @@ public class ReportService
         var wins = GameReports.Where(r => r.PlayerScore > r.OpponentScore)
             .ToDictionary(t => t.Id, t => t.OpponentFactionId);
 
-        if (wins.Count==0)
+        if (wins.Count == 0)
         {
             return "Not enough Data.";
         }
@@ -97,9 +108,9 @@ public class ReportService
         Factions = await _remoteDataService.GetFactions();
         GameReports = await _repository.GetGamesAsync();
         RoundReports = await _repository.GetRoundsAsync();
+        GlobalStats = CreateGlobalStats();
 
 
     }
-
 
 }
