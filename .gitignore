@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 # Keystore
 .keystore
+/Aos.Tests
