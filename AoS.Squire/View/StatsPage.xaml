@@ -122,6 +122,7 @@
 
 
     </Grid>
+        <Button VerticalOptions="End" Text="Reset Stats" Command="{Binding ResetStatsCommand}"></Button>
     </Grid>
    
 </ContentPage>

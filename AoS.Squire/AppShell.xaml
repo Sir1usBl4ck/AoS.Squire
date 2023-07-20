@@ -21,6 +21,9 @@
             <ShellContent Title="Factions"
                           ContentTemplate="{DataTemplate views:FactionStatsPage}"
                           Route="FactionStatsPage"></ShellContent>
+            <ShellContent Title="Ghb"
+                          ContentTemplate="{DataTemplate views:GhbStatsPage}"
+                          Route="GhbStatsPage"></ShellContent>
         </Tab>
     </TabBar>
 

@@ -3,14 +3,8 @@ using SQLite;
 
 namespace AoS.Squire.Services;
 
-public interface ILocalReportsRepository
-{
-    Task<List<GameReport>> GetGamesAsync();
-    Task<List<BattleRoundReport>> GetRoundsAsync();
-    Task<bool> DeleteAllAsync();
-}
 
-public class LocalRepository : ILocalReportsRepository
+public class LocalRepository 
 {
     private SQLiteAsyncConnection _database;
 
@@ -85,6 +79,7 @@ public class LocalRepository : ILocalReportsRepository
     private GameReport CreateGameReport(Game game)
     {
         var gameReport = new GameReport();
+        gameReport.Battleplan = game.Battleplan.Name;
         gameReport.PlayerFactionId = game.Player.Faction.Id;
         gameReport.OpponentFactionId = game.Opponent.Faction.Id;
         gameReport.PlayerBattleTacticsCount = game.BattleRounds

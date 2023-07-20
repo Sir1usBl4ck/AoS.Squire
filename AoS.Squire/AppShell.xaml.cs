@@ -16,5 +16,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(TacticsPickerPage), typeof(TacticsPickerPage));
         Routing.RegisterRoute(nameof(AllianceSelectionPage), typeof(AllianceSelectionPage));
         Routing.RegisterRoute(nameof(EndGamePage), typeof(EndGamePage));
+        Routing.RegisterRoute(nameof(GhbStatsPage), typeof(GhbStatsPage));
     }
 }

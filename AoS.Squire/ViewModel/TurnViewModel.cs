@@ -66,8 +66,12 @@ public partial class TurnViewModel : BaseViewModel
     
     public int ExtraTrackerValue
     {
-        get => _store.ExtraTrackerValue;
-        set => _store.ExtraTrackerValue = value;
+        get => Turn.Player.ExtraTrackerValue;
+        set
+        {
+            Turn.Player.ExtraTrackerValue = value;
+            OnPropertyChanged();
+        }
     }
 
     public int ExtraPoints

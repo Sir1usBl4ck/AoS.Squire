@@ -1,6 +1,6 @@
 ﻿namespace AoS.Squire.Model;
 
-public class Mission
+public class Battleplan
 {
     public int Table { get; set; }
     public int BattlePlan { get; set; }

@@ -17,6 +17,6 @@ public partial class Player : ObservableObject
     public List<BattleTactic> AvailableBattleTactics { get; set; } = new();
 
     public int Id { get; set; }
-    
+    public int ExtraTrackerValue { get; set; }
 }
 

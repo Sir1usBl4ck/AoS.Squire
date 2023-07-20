@@ -2,14 +2,16 @@
 
 public class Game
 {
-    public Game(Player player, Player opponent)
+    public Game(Player player, Player opponent, Battleplan battleplan)
     {
         Player = player;
         Opponent = opponent;
+        Battleplan = battleplan;
     }
     public Player Player { get; }
     public Player Opponent { get; }
     public List<BattleRound> BattleRounds { get; } = new();
+    public Battleplan Battleplan { get; set; }
 
     public int PlayerScore { get; set; }
     public int OpponentScore { get; set; }

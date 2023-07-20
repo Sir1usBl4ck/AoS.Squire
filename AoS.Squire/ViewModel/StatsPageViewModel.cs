@@ -7,21 +7,19 @@ namespace AoS.Squire.ViewModel;
 public partial class StatsPageViewModel : BaseViewModel
 {
     private readonly ReportService _reportService;
-    private readonly GlobalStats _globalStats;
 
     public StatsPageViewModel(ReportService reportService)
     {
         _reportService = reportService;
-        _globalStats = reportService.GlobalStats;
     }
 
-    public int TotalNumberOfGames => _globalStats.TotalNumberOfGames;
-    public decimal Wins => _globalStats.Wins;
-    public int Draws => _globalStats.Draws;
-    public int Losses => _globalStats.Losses;
-    public decimal WinRate => _globalStats.WinRate;
-    public string MostWinsAgainstFactionName => _globalStats.MostWinsAgainstFactionName;
-    public string MostLossesAgainstFactionName => _globalStats.MostLossesAgainstFactionName;
+    public int TotalNumberOfGames => _reportService.GlobalStats.TotalNumberOfGames;
+    public decimal Wins => _reportService.GlobalStats.Wins;
+    public int Draws => _reportService.GlobalStats.Draws;
+    public int Losses => _reportService.GlobalStats.Losses;
+    public decimal WinRate => _reportService.GlobalStats.WinRate;
+    public string MostWinsAgainstFactionName => _reportService.GlobalStats.MostWinsAgainstFactionName;
+    public string MostLossesAgainstFactionName => _reportService.GlobalStats.MostLossesAgainstFactionName;
 
 
     [RelayCommand]
@@ -43,7 +41,7 @@ public partial class StatsPageViewModel : BaseViewModel
     private async Task ResetStatsAsync()
     {
         var answer = await Application.Current.MainPage.DisplayAlert("Attention!", "You are about to reset the database. All your data will be lost. Are you sure?",
-            "Cancel", "Yes Reset my Data");
+            "Yes Reset my Data", "Cancel");
         if (answer)
         {
             await _reportService.ResetDbAsync();

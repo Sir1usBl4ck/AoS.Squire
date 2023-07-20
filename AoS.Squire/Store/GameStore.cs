@@ -28,7 +28,7 @@ public partial class GameStore : BaseViewModel
     public event Action GameScoreChanged;
     
     [ObservableProperty] 
-    private Mission _selectedMission;
+    private Battleplan _battleplan;
     
     private Game _game;
     private int _extraTrackerValue;

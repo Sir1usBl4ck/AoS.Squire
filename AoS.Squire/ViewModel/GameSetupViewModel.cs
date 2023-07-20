@@ -29,17 +29,17 @@ public partial class GameSetupViewModel : BaseViewModel
         StartGameCommand.NotifyCanExecuteChanged();
     }
 
-    public string MissionName => !string.IsNullOrWhiteSpace(_gameStore?.SelectedMission?.Name) ? _gameStore?.SelectedMission?.Name: "Choose Mission" ;
+    public string MissionName => !string.IsNullOrWhiteSpace(_gameStore?.Battleplan?.Name) ? _gameStore?.Battleplan?.Name: "Choose Battleplan" ;
     public string PlayerFaction => !string.IsNullOrWhiteSpace(_gameStore.Player.Faction?.Name) ? _gameStore.Player.Faction?.Name: "Select Faction" ;
     public string OpponentFaction => !string.IsNullOrWhiteSpace(_gameStore.Opponent.Faction?.Name) ? _gameStore.Opponent.Faction?.Name: "Select Faction" ;
 
     public bool IsPlayerSelected => !string.IsNullOrWhiteSpace(_gameStore.Player.Faction?.Name);
     public bool IsOpponentSelected => !string.IsNullOrWhiteSpace(_gameStore.Opponent.Faction?.Name);
-    public bool IsMissionSelected => !string.IsNullOrWhiteSpace(_gameStore.SelectedMission?.Name);
+    public bool IsMissionSelected => !string.IsNullOrWhiteSpace(_gameStore.Battleplan?.Name);
 
     private bool CanStartGame()
     {
-        return (_gameStore?.SelectedMission!=null && _gameStore?.Player?.Faction!=null && _gameStore?.Opponent?.Faction!=null);
+        return (_gameStore?.Battleplan !=null && _gameStore?.Player?.Faction!=null && _gameStore?.Opponent?.Faction!=null);
     }
 
     [RelayCommand(CanExecute = nameof(CanStartGame))]

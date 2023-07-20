@@ -36,6 +36,8 @@ public static class MauiProgram
         builder.Services.AddTransient<TurnPageViewModel>();
         builder.Services.AddTransient<TacticsPickerViewModel>();
         builder.Services.AddTransient<StatsPageViewModel>();
+        builder.Services.AddTransient<FactionStatsPageViewModel>();
+        builder.Services.AddTransient<GhbStatsPageViewModel>();
         builder.Services.AddTransient<AllianceSelectionViewModel>();
         builder.Services.AddTransient<EndGameViewModel>();
 
@@ -47,8 +49,11 @@ public static class MauiProgram
         builder.Services.AddTransient<TurnPage>();
         builder.Services.AddTransient<TacticsPickerPage>();
         builder.Services.AddTransient<StatsPage>();
+        builder.Services.AddTransient<FactionStatsPage>();
+        builder.Services.AddTransient<GhbStatsPage>();
         builder.Services.AddTransient<AllianceSelectionPage>();
         builder.Services.AddTransient<EndGamePage>();
+
 
 #if DEBUG
 		builder.Logging.AddDebug();

@@ -2,11 +2,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AoS.Squire.View.FactionStatsPage"
-             Title="FactionStatsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Work in progress..."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Factions">
+    <Grid Padding="16">
+        <CollectionView ItemsSource="{Binding FactionStats}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="16">
+                        <Grid 
+                            ColumnDefinitions="*,Auto"
+                            RowDefinitions="Auto,Auto,*">
+                            <Label Grid.Column="0"
+                                   Grid.Row="0"
+                                   Text="{Binding FactionName}"
+                                   FontAttributes="Bold"></Label>
+                            <VerticalStackLayout Grid.Row="0" Grid.Column="1"  HorizontalOptions="End">
+                                <Label HorizontalOptions="Center" Text="Games" FontSize="10"></Label>
+                                <Label HorizontalOptions="Center" FontSize="16" Text="{Binding NumberOfGames}"></Label>
+                            </VerticalStackLayout>
+                            <HorizontalStackLayout Spacing="24"
+                                                   Margin="0,8"
+                                                   Grid.Column="0"
+                                                   Grid.Row="1"
+                                                   Grid.ColumnSpan="2">
+                                <Label Text="{Binding Wins, StringFormat='W: {0}'}"></Label>
+                                <Label Text="{Binding Draws, StringFormat='D: {0}'}"></Label>
+                                <Label Text="{Binding Losses, StringFormat='L: {0}'}"></Label>
+                            </HorizontalStackLayout>
+                            <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End">
+                                <Label HorizontalOptions="Center" Text="Winrate" FontSize="10"></Label>
+                                <Label HorizontalOptions="Center" FontSize="16" Text="{Binding WinRate, StringFormat='{0}%'}"></Label>
+                            </VerticalStackLayout>
+                            <Grid Grid.Row="2"
+                                  Grid.ColumnSpan="2"
+                                  ColumnDefinitions="*,*">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label FontSize="12"
+                                           Text="Most Wins"></Label>
+                                    <Label Text="{Binding MostWinsAgainstFactionName}"></Label>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                    <Label FontSize="12"
+                                           Text="Most Losses"></Label>
+                                    <Label LineBreakMode="WordWrap" Text="{Binding MostLossesAgainstFactionName}"></Label>
+                                </VerticalStackLayout>
+                   
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+      
+    </Grid>
 </ContentPage>

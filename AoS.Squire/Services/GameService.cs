@@ -22,14 +22,14 @@ public class GameService
     }
     public async Task StartGame()
     {
-        _gameStore.Game = new Game( _gameStore.Player, _gameStore.Opponent);
+        _gameStore.Game = new Game( _gameStore.Player, _gameStore.Opponent,_gameStore.Battleplan);
         _game = _gameStore.Game;
         InitializeBattleRounds(5);
 
         InjectTactics(_gameStore.Player);
         InjectTactics(_gameStore.Opponent);
 
-        InjectVictoryPoints(_gameStore.SelectedMission);
+        InjectVictoryPoints(_gameStore.Battleplan);
 
     }
 
@@ -94,12 +94,12 @@ public class GameService
         }
     }
 
-    private void InjectVictoryPoints(Mission mission)
+    private void InjectVictoryPoints(Battleplan battleplan)
     {
-        if (mission == null) return;
+        if (battleplan == null) return;
         foreach (var gameBattleRound in _game.BattleRounds)
         {
-            foreach (var victoryPoint in mission.VictoryPoints)
+            foreach (var victoryPoint in battleplan.VictoryPoints)
             {
                 gameBattleRound.PlayerTurn.VictoryPoints.Add(new VictoryPoint() { Description = victoryPoint.Description, Points = victoryPoint.Points });
                 gameBattleRound.OpponentTurn.VictoryPoints.Add(new VictoryPoint() { Description = victoryPoint.Description, Points = victoryPoint.Points });

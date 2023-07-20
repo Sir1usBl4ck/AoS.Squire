@@ -17,7 +17,7 @@ public partial class MissionPickerViewModel : BaseViewModel
         {
             Missions.Clear();
         }
-        Missions = new ObservableCollection<Mission>();
+        Missions = new ObservableCollection<Battleplan>();
         foreach (var mission in gameStore.Ghb.Missions)
         {
             Missions.Add(mission);
@@ -25,15 +25,15 @@ public partial class MissionPickerViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async Task SelectionChangedAsync(Mission mission)
+    private async Task SelectionChangedAsync(Battleplan battleplan)
     {
-        if (mission==null)
+        if (battleplan==null)
         {
             return;
         }
-        _gameStore.SelectedMission = mission;
+        _gameStore.Battleplan = battleplan;
         await Shell.Current.GoToAsync(nameof(GameSetupPage));
     }
 
-    public ObservableCollection<Mission> Missions { get; set; } = new();
+    public ObservableCollection<Battleplan> Missions { get; set; } = new();
 }

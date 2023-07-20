@@ -23,6 +23,7 @@ public class GameReport
     public int OpponentFactionId { get; set; }
     public int PlayerScore { get; set; }
     public int OpponentScore { get; set; }
+    public string Battleplan { get; set; }
     public int PlayerBattleTacticsCount { get; set; }
     public int OpponentBattleTacticsCount { get; set; }
 }

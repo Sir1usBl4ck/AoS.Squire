@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AoS.Squire.View.GhbStatsPage"
+             Title="Battleplans">
+    <Grid Padding="16">
+        <CollectionView ItemsSource="{Binding GhbStats}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="16">
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="BATTLEPLAN" FontSize="10"></Label>
+                                <Label FontSize="16" Text="{Binding BattleplanName}"></Label>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                <Label HorizontalOptions="Center" Text="WINRATE" FontSize="10"></Label>
+                                <Label HorizontalOptions="Center" FontSize="16" Text="{Binding WinRate, StringFormat='{0}%'}"></Label>
+                            </VerticalStackLayout>
+                            <HorizontalStackLayout Spacing="16" Grid.Column="0" Grid.Row="1">
+                                <Label Text="{Binding Wins,StringFormat='W: {0}'}"></Label>
+                                <Label Text="{Binding Draws,StringFormat='D: {0}'}"></Label>
+                                <Label Text="{Binding Losses,StringFormat='L: {0}'}"></Label>
+                            </HorizontalStackLayout>
+                            <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                                <Label HorizontalOptions="Center" Text="TACTICS" LineBreakMode="WordWrap" FontSize="10"></Label>
+                                <Label HorizontalOptions="Center" FontSize="16" Text="{Binding AverageCompletedTactics}"></Label>
+                            </VerticalStackLayout>
+                        </Grid>
+           
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+       
+    </Grid>
+</ContentPage>

@@ -17,8 +17,8 @@
                 <DataTemplate>
                     <VerticalStackLayout Spacing="0">
                         <HorizontalStackLayout Spacing="5">
-                            <Label Text="{Binding BattlePlan, StringFormat='Battleplan {0}'}" />
-                            <Label Text="{Binding Table, StringFormat='(Table {0})'}" />
+                            <Label FontSize="12" Text="{Binding BattlePlan, StringFormat='Battleplan {0}'}" />
+                            <Label FontSize="12" Text="{Binding Table, StringFormat='(Table {0})'}" />
                         </HorizontalStackLayout>
                         <Label Text="{Binding Name}"
                                FontSize="16"

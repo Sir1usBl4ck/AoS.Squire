@@ -4,4 +4,6 @@
              x:Class="AoS.Squire.Resources.Styles.IconFont">
     <x:String x:Key="Star">&#xe9d9;</x:String>
     <x:String x:Key="StarOutline">&#xe9d7;</x:String>
+    <x:String x:Key="ArrowUp">&#xea3a;</x:String>
+    <x:String x:Key="ArrowDown">&#xea3e;</x:String>
 </ResourceDictionary>
